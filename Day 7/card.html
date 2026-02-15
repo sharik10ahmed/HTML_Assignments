@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+</head>
+<style>
+    div {
+        display: flex;
+        flex-direction: column;
+        border: 4px solid gray;
+        padding: 50px;
+        height: 350px;
+        width: 350px;
+        background-color: gainsboro;
+        border-radius: 16px;
+    }
+
+    div2 {
+        margin-top: 10px;
+    }
+
+    img {
+        height: 120px;
+        width: 120px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+</style>
+
+<body>
+    <div>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAACUCAMAAADF0xngAAABKVBMVEVKvJb///8dHR70s4JRJQ1KSlTio3nz+v+GtNHU1tgbGhsvNjxUaHdrfowAAABEupNKwpv5s4HZlGXQiVnZ6vU2t47i9P7w+fV7y6+Q07tRHQDN3+pdcH73/PrZ8OjS7ONcwZ/G6NxRFQBFFwAbEheTpLFpxqa649St3czk9O4WAAAnJyszMjoSERFrc3hQV1vbtYaKuY8ZAA5Lso1Mp4NOclZPYEdRMhxNhGZRCQBAEQBdMRpPTztNknJQOySgbE3Mkmh/UDVqu5O7g1zItoifuIx7uY+tuIy3q4KhzsPZqn/qyrfw7OZFZmFxbXjr08W4u76AgIaz0OIzc14sXEyevtOoqK4zkXKQkZe/zdYkODAdKiZykacoTEB5oLtERkZCVmc6BQBEcmfP/UkwAAALs0lEQVR4nMWceUPbuBLAhXOwSdvYpk0T6EtJSB4QGs6kEO6r23YpW0KhhIae+/0/xJNk2ZYdyZ6x033zRwuJJf8YzWVZEplCSG2+WiaTkHJ1voa5MUFcO181zYlAEmKa1fnfQtmukkkxck5SbU+csrJcniQj5ywvVyZL2VicjEEGpbzYmCBle3IGGRRqnqBhh1A2fhOjw9mYCGVt9jdCMszZ+KAUS/my/DssUpZy+WVayqWJhh+1mGQpHeXs72fknLMpKCuYhGhZ9J9uz5Eu+92CNy5XI0NnFGUFESQtq9t/vX1wsOPI0cH2636vCwctL0ZhRlDOI0yy93onO8ck64j4+ajfhfZgkojErqdsQCGpFg92F7JK2d09OOzCFGqSBp5yHhglLat/5KlQIXNzR4dATFOrTR1lA6rI3tFCBCPn3D3qATl12tRQQofb6mdjGJks7MAwtYOupnwJHe7XcYoU6tzpgfozTXUaUlK2oY6zvQthZJhzMB8yibJGUlFWFqGahELSQd8GmqYybqoogZCkDxptV6CevgiirM0CM04Pw5id24b1SsqKSm6ccgkagw40kVwnwDEn5niFNEbZAGrS6sON0pEFsDYbcZQVqHt3j5CQcEyThD0oTAktKC2c6wjM10APCpebIcplaK3WPUpAmd2FBXdSXo6ibEMhrUOsVXKZOwD2X25HUFahFaW1jXRwF7MPHPOqnhIahCglQJXN4+PTbHNvr5nd9ymPgGVxMBzJlJU6WJXxA/5r/zyTyZ9wOfY/3oUqs17RUEKTDq+FYvSYpYye5H1lZneAsb08q6YEuw6Vg2gPbx7nJciMLVEuAN084EASJdh1aAqPDOm/9gOMVI6b3pdzwJgZcCCfEu461Cyj9Lh/ngnLyS+fEhqMZAfyKGsIVVp9rVk2s8dhRTLxdZk9gg65Wa2NUUKrDC5a52meqhgzmVPpGiilVHV4lOAoFEG5d3piKyFlw1wAlsMsGoUpUapUu/heIPqEDNO/bBdM6SuT4K1SR6kZbC5SxERQepYpKOcxjKqCiA62njFgmAhK4s4dEWza4ZQ7Icrmnn6ww4YJt0s/ATmUFdysdDesyeMYxkzm3L8Y7OMMsyJRLqWhjBtsxzC9y6FVkUO5JFGiwlCQstmMG2xHXPeB5x4mIhhxynnk7Hl3x2NUp5pxsU+FYYLzuMCc9yiX0ZTCe/b2AYPtyLlI5QvAWUKXctmlhM4L+ZRuJAIqkkle6BJaX7qUfN6IJBhwj/Jckw+V4hgmtFb3MecFJfjx1m1oHrBbNuPjjywsYjb3d7pIlfCHXkaJHfDNDdtmKQ9sk1xoKt/P2/bGJu5mfA6OUtZwqjQ3bTbQp82xijxa8qe8rLPtTZxSyjVOiSuHCHnDrZHeEwXptbA3cLdjhRFBv2vsOi5zvHeK8R1Kd7znGLKNST7OpBGlXEQ1ImeC8hfOefwW9hnuhouMsl1PRHkeWwaFxW1hv8XdsN6mlA1cG1IXlMD8raBE6pI0KCU6PTqUJ2jKk6YTuuw67oY0SRL8i3pxT/SIn+yJAIu8H3UfUsE98VDZ4MrMI3K4I6IFNhLRp58KgU+0uY3e4CJQWOw32BvWK6SNa0Llz5SU79BrQdrkJXYhjrmZCjKDzZA0+7wk2PxIzLfpKDNv0ZQNgnwwY7KRZsjtDVyCZJRLBFtcpnUf+z3aLMvLBL+uyTxLRYk2SxowCTpc0lYphty+SHC/KsEW6qzVWzspJroG5vdbJHV0IxaMNjY2EjDSVgkgaYGTiJKY5OwsAeXZWbIViIkYHVC0p6NT4yQE7enounISglXm/0WV+EyJzoyS1JM3RSnTfpOGMTmliXPzs+SqrCeJ6h5mqNLMz3Bx/wuq8s8U91lMkiH95oFUOfN0RpanMzLkRprbVBNUG1LzgAPNPA2KTJnKdWi1ga/c5Pabto4zwJgke/tCK7dUlMR8F8DMu5xBq0zwqBOiRD9RRGIy0nz4ETglJHuiQD+dxWKGJS0kezrDP+mGMWOC+wQyYxs/azCO+S6j57QzaTXJZw3wMzDj3WxqMe1MKu92uq9WEsxmKfo50zwJ2Rsp8qLX+2yCmUFlR7r6KE0w9zpfTjDLqpSz8fjDY9JECt9GghlrtVyMY9JPLibRNZ+xxs7+K6XMKGVQ59eLSexZW0zyJkUp5fd5lbyfAKV4k5IyRzpdaSgnoYBGkjd8/zplLdnb0n+V0n1bin7zPN6TqbXL1PtSvTfP6Lf4YUiy/NeFkvLir+W0uz69t/joFRGhfurt6ekPSsoP09PtdNWMvyIiXZIsVynkdK32IazOiw+1Gv2mneosBH91Saoht2YZCuO8vMrPeIgz+atL94tZ5FKNAKW/Uge76skFpHfv/f1xatqTK1efF1f+h1Mf/+6JDbJ4SGnVE3YFGd+D2+0ND2/+yeU6g9q0zDmTn5EZp2uDTi73T3/INu+iUQMryDCr8Shht3dz+230YLTo/XO59YKMWbu6uAr8XlhnF3VaDw+jbzc3mL27JLQaD7iykWvw8PZha2WrVaRicMrctUz17PMfn57LlNf8mg67vtWiLR9uD8FaDa5sBK0StQhV4WiLAhpCig5lZ+CZ5rNPfzD59MwzyoG4xm+0tdIa3fR7BMIZXCUau+LWsno3I6PVahmSFF/lHLkUTA4j5xSfXIorXhXlhqyf0U0vTqHhFbfRhRHT4sPKVuBGAcprh6gw8CgHBYf8WknJ2lKdUtBIjYZXL0cFI8saUlNshRGZuJQ56ucFJp8F5Gf+G/Vv94JXquYtaqRDvULHV4JrlWmR4UgyxZC4ELmCkM8SJBXve037YmtrNNTpU7GqXmeZw9GKUo1Bys69y8Up3V/uOzGUTKErlFOpSsUOBeVuD4vcFiMYXScPK3NclR3dYHDO4q1KnardHqqdM9awtRXRe4DyToB9oZRfxM93MErD2GqNr3BV75wZ34VkDY0oRTLx3Cd3LVF+Ej9fe98qnUdWpzEMY2p2IYUTkDUcjz1j4nHkBmMjPvC/jO2nuBXC1O3oCu+O62k9W0Xp+o/kPb7vxFNSbw+sttfvjgs50G3ccLO+fXXlxiil7wB/b+tW4zphyoAD9QxA1xJl5841S+E+dx0UZdGQlBm1a1N2IKsf7d6ia4nkox/VOeVH6S8AUBpb0vLryB2w0kOvdYul5P7j5x7Jd4CUtx5l9G5iedLoAdIzD0UdEY/uXbPkhnkvYlAHEIicv/jBG++Yndn+LvfeCqRnimmsusa5PhBmyYZ8sO6a5KoBgjSMFWGY8bvc3arDGgIpqcbdUaf+41N6vtMxIG7IKUXIjD8xwA1HFiQOOZi+aX6UKjffd0BGyaTlGCbk9AVxkoU1AvYt+09n4FEO5I+hXY0sAj3JwpmD68Kcx5BTeS73xKvVn0ifAs2Suk8XfCoInzeihQZUihLmz+8C8vtPCRL69xq05ICfsDLVJtYN1CyNgDa/CsqveE1Sad1Y8NNq2Mk/YOcxmAt7SI8F5WPvE6iDc8pbzMk/NB59Q1DKg+4M+fckw00pvzXUOLoTqQYlTPc+5pOg76Agi6WBhkZ7utdgdTURJqdMBLm6qoOMOClt8JAI86vkOzjIBy1k1KlzhVelBJiPfd9BQZZeFfQoUSf4FX4kwfzu+g4O8kcEZPRpiIV1FGZH+I/jO+D0zSHXoyDjTpZcw7i6wPyOhiyW1qIx4k7pvMO4+irH5FbZwTRbvYuhiD3xtFDCjLpcVOok3KZUihxtEOVUba0E18uqmPml9fkjnYRalNYmcHoslTuEOrltUpssPnqsk4DFlkpxow2lZL4OV2eHDbdR/PFEJ498ytUY30ZR0kQED51FrqvS2nONvFj3/uLSD326SUI5dXlfggYlfhml/PJfR748e/bCE/qzoCyWSveXwLvDTy6/XDMQwZNR/uRm+PPz8y//8eTJC4eyWDLWoIy4U+AHCG+XKWVdvnB0ST0bONhoyqka3DyDlLIwSmqQqBP1/wejXLIJ66ix7gAAAABJRU5ErkJggg==" alt="user icon">
+        <div2>
+            <p><b>Name:</b> Sharik Ahmed</p>
+            <p><b>Course</b>: BCA</p>
+            <p><b>Year:</b> 1st Year</p>
+            <p><b>Contact:</b> +91 8299660630</p>
+            <p><b>Email:</b> sharikahmed731@gmail.com</p>
+            <p><b>Address:</b> (Address)</p>
+        </div2>
+    </div>
+</body>
+
+</html>
