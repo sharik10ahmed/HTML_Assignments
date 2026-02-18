@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    p {
+      border: 2px solid maroon;
+      height: 200px;
+      width: 200px;
+      text-align: center;
+      background-color: black;
+      color: whitesmoke;
+      font-size: 20px;
+    }
+
+    p:hover {
+      background-color: yellow;
+      color: maroon;
+    }
+
+    /* This is a CSS pseudo-class selector */
+    p:nth-child(3) {
+      background-color: goldenrod;
+      color: black;
+    }
+
+    p:nth-child(1):hover {
+      background-color: green;
+    }
+
+    /* this is Pseudo-Elements */
+
+    p::before {
+      content: "👉 ";
+    }
+
+    
+    /* p::after {
+      content: "👉 ";
+    } */
+  </style>
+
+  <body>
+    <p>First box</p>
+    <p>second box</p>
+    <p>third box</p>
+    <p>fourth box</p>
+    <p>fifth box</p>
+  </body>
+</html>
+
+
+<!-- Best  -->
+
+<!-- Profile  -->
