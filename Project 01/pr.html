@@ -15,7 +15,7 @@ ul {
     gap: 30px;
 }
 
-img {
+.logo {
     height: 40px;
     width: 100px;
 }
@@ -30,26 +30,42 @@ button{
     color:whitesmoke;
     border:none;
     height:48px;
-    width:100px;
+    width:110px;
     font-weight:bold;
     border-radius:10px;
 }
 .design_class {
     display: flex;
     flex-direction: column;
-    margin-left: 890px;
-    margin-top: 5px;
+    margin-left: 700px;
+    margin-top: -10px;
     
 }
 .design{
    display: flex;
-   margin-left: ;
-   margin-top: 32px;
+   margin-left: 80px;
+   margin-top: 60px;
+}
+.image {
+    height:590px;
+    width:900px;
+    margin-left: 640px;
+}
+.heading{
+    display:flex;
+    justify-content: left;
+    margin-top:-450px;
+    margin-left: 100px;
+    font-size: 65px;
+}
+.para{
+    margin-left: 100px;
+    margin-top: -15px;
 }
 </style>
 <body>
     <nav class="design">
-        <a href=""><img src="./assets/Logo.png" alt="icon file"></a>
+        <a href=""><img class="logo" src="./assets/Logo.png" alt="icon file"></a>
         <ul style="list-style-type:none">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
@@ -61,5 +77,10 @@ button{
             <button>Contact Us</button>
         </div>
     </nav>
+    <main>
+        <img class="image" src="./assets/Header Illustration.png">
+        <h1 class="heading">We Help You <br>Crush Your<br> Competition</h1>
+        <p class="para">Build trust to connect your brand to billions of<br> users and grow your revenue through SEO.</p>
+    </main>
 </body>
 </html>
