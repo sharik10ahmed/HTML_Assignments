@@ -14,23 +14,91 @@
       margin-left: -10px;
       margin-top: -20px;
       background-color: rgb(0, 0, 0);
-
       color: white;
         }
-    </style>
+        ul{
+            display: flex;
+            gap:45px;
+        }
+        li{
+            list-style-type: none;
+        }
+        ul li a {
+            text-decoration: none;
+        }
+        .navcolor {
+            color:white;
+            font-weight: bold;
+        }
+        .logo{
+            height: 35px;
+            width: 100px;
+        }
+        .line{
+            font-size: 50px;
+            line-height: 1.5px;
+        }
+        button {
+            border-radius: 5px;
+            height: 32px;
+            width: 100px;
+            margin-left:670px;
+            background-color: #ba0cc5;
+            color: white;
+        }
+        .navcolor2{
+            color:white;
+            font-weight: bold;
+            line-height: 0.1px;
+        }
+        .text{
+            display: flex;
+            justify-content: center;
+            margin-top:250px;
+            font-size: 60px;
+            color: white;
+        }
+        .para{
+            margin-left: 562px;
+            margin-top: -30px;
+            font-size: 20px;
+            color: white;
+        }
+        .button2{
+            border-radius: 5px;
+            height:40px;
+            width:200px;
+            font-size: 16.5px;
+            margin-left: 650px;
+        }
+        .background{
+            background-image: url(./assets/bg.png);
+            background-size: cover;
+            background-position: center;
+            height:1500px;
+        }
+        </style>
     <body>
         <nav>
-            <a href=""><img src="assets/white-logo.png"></a>
+            <a href="#"><img class="logo" src="assets/white-logo.png"></a>
             <ul>
-                <li>Apps</li>
-                <li>DAO</li>
-                <li>Technology</li>
-                <li>Token</li>
-                <li>Contributors</li>
+                <li class="line">|</li>
+                <li><a class="navcolor2" href="#">Apps ⮟</a></li>
+                <li><a class="navcolor" href="#">DAO</a></li>
+                <li><a class="navcolor" href="#">Technology</a></li>
+                <li><a class="navcolor" href="#">Token</a></li>
+                <li><a class="navcolor" href="#">Contributors</a></li>
             </ul>
             <div>
                 <button>Buy 1 Token</button>
             </div>
         </nav>
+        <main>
+            <div class="background">
+            <h1 class="text">Lets build a better<br> tomorrow, together.</h1>
+            <p class="para">Buy 1 Token. Join the DAO. Change the world</p>
+            <button class="button2">Request early access</button>
+            </div>
+        </main>
     </body>
 </html>
