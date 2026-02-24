@@ -7,70 +7,148 @@
     <title>Project 3</title>
 </head>
 <style>
-    .logo{
+    .logo {
         height: 40px;
         width: 20x;
     }
-    nav{
+
+    nav {
         display: flex;
         justify-content: flex-start;
         margin-left: 50px;
         margin-top: 40px;
-        gap:300px;
+        gap: 300px;
     }
-    .navcolor{
+
+    .navcolor {
         font-size: 20px;
     }
-    ul{
+
+    ul {
         display: flex;
         gap: 40px;
     }
-    ul li a{
+
+    ul li a {
         display: flex;
-        text-decoration:none;
+        text-decoration: none;
         color: black;
     }
-    ul li{
+
+    ul li {
         list-style-type: none;
     }
-    button{
+
+    button {
         height: 28px;
         width: 110px;
         border-radius: 10px;
         border-color: black;
         font-size: 15px;
         margin-top: 15px;
-        margin-left:150px;
-        background-color:white;
+        margin-left: 150px;
+        background-color: white;
     }
-    .search{
+
+    .search {
         height: 30px;
         width: 30px;
-        margin-left:110px;
+        margin-left: 110px;
         margin-top: 15px;
         position: absolute;
     }
-    .Photo :nth-child(1){
+
+    .Photo :nth-child(1) {
         height: 500px;
         width: 400px;
         margin-top: 90px;
         margin-left: 50px;
-        z-index:3;
+        z-index: 3;
         position: absolute;
     }
-    .Photo :nth-child(2){
+
+    .Photo :nth-child(2) {
         height: 400px;
         width: 350px;
         z-index: 2;
-        margin-top:250px;
+        margin-top: 250px;
         margin-left: 170px;
         position: absolute;
     }
-    .right:nth-child(1){
+
+    .right {
         display: flex;
-        
+        margin-left: 750px;
+        position: absolute;
+        margin-top: 50px;
+    }
+
+    .right2 {
+        display: flex;
+        position: absolute;
+        margin-left: 1380px;
+        margin-top: 120px;
+    }
+
+    h1 {
+        display: flex;
+        position: absolute;
+        margin-left: 700px;
+        position: absolute;
+        margin-top: 250px;
+        font-size: 60px;
+    }
+
+    .para {
+        display: flex;
+        position: absolute;
+        margin-left: 700px;
+        margin-top: 350px;
+        font-size: 20px;
+    }
+    .para2{
+        display: flex;
+        position: absolute;
+        margin-left: 705px;
+        margin-top: 378px;
+        font-size: 20px;
+    }
+    .para3{
+        display: flex;
+        position: absolute;
+        margin-left: 900px;
+        margin-top: 407px;
+        font-size: 20px;
+    }
+    .button1{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        margin-left: 800px;
+        margin-top: 500px;
+        height: 29px;
+        width: 160px;
+        font-size:18px;
+        align-items: center;
+        border-radius: 10px;
+       
+    }
+    .button2{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        margin-left: 980px;
+        margin-top: 500px;
+        height: 28px;
+        width: 107px;
+        font-size:18px;
+        align-items: center;
+        border-radius: 10px;
+        color: white;
+        background-color: black;
     }
 </style>
+
 <body>
     <nav>
         <a href="#"><img class="logo" src="./assets/Logo.png"></a>
@@ -87,13 +165,25 @@
     </nav>
     <main>
         <div class="Photo">
-        <img src="./assets/Image.png">
-        <img src="./assets/squares.png">
+            <img src="./assets/Image.png">
+            <img src="./assets/squares.png">
         </div>
         <div class="right">
             <img src="./assets/globe.png">
+        </div>
+        <div class="right2">
             <img src="./assets/start.png">
         </div>
+        <div>
+            <h1>What's Trend in 2026 ?</h1>
+            </div>
+            <div>
+            <p class="para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in-</p>
+            <p class="para2">cididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+            <p class="para3">exercitation ullamco laboris nisi ut</p>
+            </div>
+            <button class="button1">Email Address</button>
+            <button class="button2">JOIN NOW</button>
     </main>
 </body>
 
