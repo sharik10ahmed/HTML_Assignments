@@ -1,0 +1,99 @@
+ nav {
+        display: flex;
+        margin-left: 55px;
+        margin-top: 24px;
+    }
+
+    .logo {
+        height: 55px;
+    }
+
+    ul {
+        display: flex;
+        gap: 40px
+    }
+
+    ul li a {
+        text-decoration: none;
+    }
+
+    ul li {
+        list-style-type: none;
+
+    }
+
+    .navcolor2 {
+        padding-left: 750px;
+        color: #20bc7e;
+        font-weight: bold;
+        font-size: 20px;
+
+    }
+
+    .navcolor {
+        color: #000000;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    h1 {
+        position: absolute;
+        font-size: 80px;
+        margin-left: 55px;
+        margin-top: 85px;
+    }
+
+    .top_angle {
+        position: absolute;
+        margin-left: 55px;
+        margin-top: 50px;
+    }
+
+    p {
+        position: absolute;
+        margin-left: 55px;
+        margin-top: 390px;
+        color: #7c7c7c;
+        font-size: 25px;
+    }
+    .bg_img {
+        position: absolute;
+        width: 46%;
+        top: 35px;
+        right: 560px;
+        z-index: -1;
+    }
+
+    button {
+        background-color: #20bc7e;
+        color: #ffffff;
+        margin-left: 55px;
+        margin-top: 500px;
+        width: 360px;
+        height: 70px;
+        border-radius: 100px;
+        border: transparent;
+        font-size: 27.5px;
+        font-weight: bolder;
+    }
+    .img1{
+        position: absolute;
+        margin-left:590px;
+        margin-top: 120px;
+        height: 550px;
+        z-index:1;
+    }
+    .img2{
+        position: absolute;
+        margin-left:665px;
+        margin-top: 180px;
+        height: 470px;
+        z-index:2;
+    }
+    .img3{
+        position: absolute;
+        margin-left:580px;
+        margin-top: 40px;
+        height: 700px;
+        z-index:3;
+    }

@@ -1,0 +1,87 @@
+ .body{
+        font-family: 'Inter', sans-serif;
+    }
+    nav {
+        display: flex;
+        padding: 45px;
+        height: 20px;
+        width: 1520px;
+        margin-left: -8px;
+        margin-top: -40px;
+    }
+
+    ul {
+        display: flex;
+        gap: 45px;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    ul li a {
+        text-decoration: none;
+        color: #001d33;
+    }
+
+    .logo {
+        height: 35px;
+        width: 100px;
+        margin-left: 190px;
+        margin-top: 10px;
+
+    }
+        .navcolor {
+        display: flex;
+        margin-left: 40px;
+        margin-top:2px;
+        font-weight: bold;
+        font-family: 'Inter', sans-serif;
+    }
+    h1{
+        position: absolute;
+        margin-top: 240px;
+        margin-left: 232px;
+        font-size: 44px;
+        
+    }
+    p{
+        position: absolute;
+        margin-top: 360px;
+        margin-left: 232px;
+        color: #555;
+        line-height: 1.6;
+    }
+    button{
+        position: absolute;
+        margin-top: 410px;
+        margin-left: 240px;
+        height: 30px;
+        background-color: #3b855b;
+        color: white;
+        font-weight: bold;
+        border-radius: 7px;
+        border-color:transparent;
+        font-family: 'Inter', sans-serif;
+    }
+    button:hover{
+        background-color: #3b6b4a;
+    }
+    .img1{
+        position: absolute;
+        margin-top:50px;
+        margin-left: 870px ;
+        height:250px;
+    }
+    .img2{
+        position: absolute;
+        margin-left: 1100px;
+        height:300px;
+    }
+    .img3{
+        position: absolute;
+        margin-top: 318px;
+        margin-left: 870px;
+        height: 220px;
+        width:480px;
+    }
