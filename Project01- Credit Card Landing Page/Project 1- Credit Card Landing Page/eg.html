@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tucard - Landing Page</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body{
+    background:#0d0d0f;
+    color:white;
+    overflow-x:hidden;
+}
+
+.container{
+    width:85%;
+    margin:auto;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 0;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:40px;
+}
+
+nav ul li{
+    font-size:14px;
+    opacity:0.8;
+    cursor:pointer;
+}
+
+nav .right{
+    display:flex;
+    gap:25px;
+    align-items:center;
+}
+
+.btn-small{
+    background:#ff00cc;
+    padding:8px 18px;
+    border-radius:6px;
+    font-size:13px;
+    cursor:pointer;
+}
+
+
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:80px 0;
+}
+
+.hero-left{
+    width:50%;
+}
+
+.hero-left h1{
+    font-size:60px;
+    line-height:1.2;
+    font-weight:600;
+}
+
+.hero-left h1 span{
+    color:#ff00cc;
+}
+
+.hero-left p{
+    margin-top:20px;
+    color:#aaa;
+    width:80%;
+}
+
+.btn{
+    margin-top:35px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:#ff00cc;
+    padding:14px 28px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:500;
+}
+
+.stats{
+    display:flex;
+    gap:60px;
+    margin-top:60px;
+}
+
+.stats div{
+    font-size:14px;
+}
+
+.stats span{
+    font-size:22px;
+    font-weight:600;
+}
+
+.hero-right{
+    width:50%;
+    position:relative;
+}
+
+.hero-right img{
+    width:100%;
+}
+
+.logo-strip{
+    background:#1a1a1d;
+    padding:35px 0;
+    margin-top:40px;
+}
+
+.logo-row{
+    display:flex;
+    justify-content:space-between;
+    opacity:0.6;
+}
+
+.features{
+    padding:120px 0;
+}
+
+.features-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:60px;
+}
+
+.features-top h2{
+    font-size:48px;
+    width:50%;
+}
+
+.features-top h2 span{
+    color:#ff00cc;
+}
+
+.features-top p{
+    width:35%;
+    color:#aaa;
+}
+
+.feature-boxes{
+    display:flex;
+    justify-content:space-between;
+}
+
+.box{
+    background:#1a1a1d;
+    padding:60px 30px;
+    width:30%;
+    text-align:center;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.box:hover{
+    background:#222228;
+    transform:translateY(-8px);
+}
+
+.box img{
+    width:50px;
+    margin-bottom:20px;
+}
+
+.cards-section{
+    background:#f1eaf2;
+    padding:120px 0;
+    text-align:center;
+    color:#111;
+}
+
+.cards-section h2{
+    font-size:48px;
+}
+
+.cards-section h2 span{
+    color:#ff00cc;
+}
+
+.cards-section p{
+    width:40%;
+    margin:20px auto 60px;
+    color:#555;
+}
+
+.cards-section img{
+    width:70%;
+}
+
+.testimonials{
+    padding:120px 0;
+    text-align:center;
+}
+
+.testimonials h2{
+    font-size:42px;
+}
+
+.testimonials h2 span{
+    color:#ff00cc;
+}
+
+.testimonials p{
+    color:#aaa;
+    margin-top:15px;
+}
+
+.testimonial-grid{
+    margin-top:60px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:40px;
+}
+
+.testimonial{
+    background:#1a1a1d;
+    padding:30px;
+    border-radius:12px;
+    text-align:left;
+}
+
+.testimonial img{
+    width:100px;
+    margin-bottom:15px;
+}
+
+.testimonial small{
+    color:#aaa;
+}
+
+.cta{
+    margin-top:100px;
+    background:linear-gradient(90deg,#ff00cc,#a100ff);
+    padding:90px 0;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:40px;
+}
+
+.cta h2 span{
+    color:black;
+}
+
+.cta .btn{
+    background:white;
+    color:#ff00cc;
+    margin-top:30px;
+}
+
+footer{
+    padding:40px 0;
+    text-align:center;
+    opacity:0.6;
+}
+
+@media(max-width:1000px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero-left, .hero-right{
+    width:100%;
+}
+
+.hero-left p{
+    width:100%;
+}
+
+.stats{
+    justify-content:center;
+}
+
+.features-top{
+    flex-direction:column;
+    text-align:center;
+}
+
+.features-top h2,
+.features-top p{
+    width:100%;
+}
+
+.feature-boxes{
+    flex-direction:column;
+    gap:40px;
+}
+
+.box{
+    width:100%;
+}
+
+.cards-section p{
+    width:80%;
+}
+
+.testimonial-grid{
+    grid-template-columns:1fr;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<nav>
+    <img src="./Project 1- Credit Card Landing Page/Assets/Icons/Logo.svg" height="30">
+    <ul>
+        <li>Home</li>
+        <li>Features</li>
+        <li>Pricing</li>
+        <li>About us</li>
+    </ul>
+    <div class="right">
+        <span>Eng</span>
+        <div class="btn-small">Contact Us</div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-left">
+        <h1>Simplify All Transactions in <span>One Card</span></h1>
+        <p>Hurry up and join now, with this you can manage your daily finances easily and safely.</p>
+        <div class="btn">Get Started →</div>
+
+        <div class="stats">
+            <div><span>45K+</span><br>Active User</div>
+            <div><span>12K+</span><br>Years Experience</div>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <img src="./Project 1- Credit Card Landing Page/Assets/Photos/frontCards.png">
+    </div>
+</section>
+
+</div>
+
+<section class="logo-strip">
+    <div class="container logo-row">
+        <img src="./Project 1- Credit Card Landing Page/Assets/Icons/Logo.svg" height="30">
+        <img src="./Project 1- Credit Card Landing Page/Assets/Icons/Logo.svg" height="30">
+        <img src="./Project 1- Credit Card Landing Page/Assets/Icons/Logo.svg" height="30">
+        <img src="./Project 1- Credit Card Landing Page/Assets/Icons/Logo.svg" height="30">
+        <img src="./Project 1- Credit Card Landing Page/Assets/Icons/Logo.svg" height="30">
+    </div>
+</section>
+
+<div class="container">
+
+<section class="features">
+    <div class="features-top">
+        <h2>The best payment service for <span>your transactions.</span></h2>
+        <p>The following are the services we provide to users, with the services we maximize it is hoped that users are satisfied with what we provide.</p>
+    </div>
+
+    <div class="feature-boxes">
+        <div class="box">
+            <img src="./Project 1- Credit Card Landing Page/Assets/Icons/dollar-circle.svg">
+            <h3>Free transaction fee</h3>
+        </div>
+
+        <div class="box">
+            <img src="./Project 1- Credit Card Landing Page/Assets/Icons/cloud-add.svg">
+            <h3>Easy to access anytime and anywhere</h3>
+        </div>
+
+        <div class="box">
+            <img src="./Project 1- Credit Card Landing Page/Assets/Icons/lock.svg">
+            <h3>Guaranteed Safety</h3>
+        </div>
+    </div>
+</section>
+
+</div>
+
+<section class="cards-section">
+    <h2>Unique and interesting <span>card choices</span></h2>
+    <p>We provide card editing features, where users can edit unique cards according to the wishes and preferences of the users themselves.</p>
+    <img src="./Project 1- Credit Card Landing Page/Assets/Icons/VCards.png">
+</section>
+
+<div class="container">
+
+<section class="testimonials">
+    <h2>Customers are satisfied with <span>the features</span> we provide</h2>
+    <p>With the various features that we provide, therefore many customers like the features that we provide.</p>
+
+    <div class="testimonial-grid">
+
+        <div class="testimonial">
+            <img src="./Project 1- Credit Card Landing Page/Assets/Icons/5stars.svg">
+            <p>This is the best finance platform I've ever found, lots of features that definitely make me more satisfied.</p>
+            <small>Melvin Yogis<br>New York, America</small>
+        </div>
+
+        <div class="testimonial">
+            <img src="./Project 1- Credit Card Landing Page/Assets/Icons/4stars.svg">
+            <p>Very good and recommended financial platform, the features are very satisfying, you will not worry this platform.</p>
+            <small>Gabriel Putra<br>Jakarta, Indonesia</small>
+        </div>
+
+        <div class="testimonial">
+            <img src="./Project 1- Credit Card Landing Page/Assets/Icons/4stars.svg">
+            <p>This is the first time I have found a financial platform so good as this, with various features that really help me in managing my finances.</p>
+            <small>Farhan Putra<br>Paris, French</small>
+        </div>
+
+        <div class="testimonial">
+            <img src="./Project 1- Credit Card Landing Page/Assets/Icons/5stars.svg">
+            <p>The best financial platform I've ever found, I have no can custom cards according to our wishes, I'm very satisfied!</p>
+            <small>Alex George<br>Wagon, Indonesia</small>
+        </div>
+
+    </div>
+</section>
+
+</div>
+
+<section class="cta">
+    <h2>Let's start <span>customing</span> your card now</h2>
+    <div class="btn">Get Started →</div>
+</section>
+
+<footer>
+    © 2026 Tucard.All rights reserved.
+</footer>
+
+</body>
+</html>
