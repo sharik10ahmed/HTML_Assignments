@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Feedback Form</title>
+</head>
+<body>
+
+    <h2>We Value Your Feedback</h2>
+
+    <form action="/submit_feedback.php" method="POST">
+        
+        <div>
+            <strong>Name:</strong><br>
+            <input type="text" name="fullName" size="30">
+        </div>
+        <br>
+
+        <div>
+            <strong>Rate your experience (1 = Poor, 5 = Excellent):</strong><br>
+            <input type="radio" name="rating" value="1"> 1
+            <input type="radio" name="rating" value="2"> 2
+            <input type="radio" name="rating" value="3"> 3
+            <input type="radio" name="rating" value="4"> 4
+            <input type="radio" name="rating" value="5"> 5
+        </div>
+        <br>
+
+        <div>
+            <strong>Comments:</strong><br>
+            <textarea name="comments" rows="6" cols="40"></textarea>
+        </div>
+        <br>
+
+        <div>
+            <strong>Email Address:</strong><br>
+            <input type="email" name="emailAddress" size="30">
+        </div>
+        <br>
+
+        <div>
+            <input type="submit" value="Submit Feedback">
+            <input type="reset" value="Clear Form">
+        </div>
+
+    </form>
+
+</body>
+</html>
