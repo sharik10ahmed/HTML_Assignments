@@ -16,61 +16,157 @@
         display: flex;
         margin-left: 80px;
     }
-    ul{
+
+    ul {
         display: flex;
         gap: 50px;
     }
-    ul li{
+
+    ul li {
         list-style-type: none;
     }
-    ul li a{
+
+    ul li a {
         text-decoration: none;
     }
 
-    .home{
-        color:#9a9999;
+    .home {
+        color: #9a9999;
         margin-left: 200px;
     }
 
-    .navcolor{
-        color:#9a9999;
+    .navcolor {
+        color: #9a9999;
     }
-    .login{
+
+    .login {
         color: white;
         font-size: medium;
         font-weight: bold;
         border: none;
         border-radius: 80px;
-        background:#0c8bfd;
-        height:40px;
-        width:90px;
+        background: #0c8bfd;
+        height: 40px;
+        width: 90px;
         margin-left: 400px;
     }
-     .main_text{
+
+    .main_text {
         color: white;
         font-weight: bold;
         font-size: 80px;
         margin-left: 80px;
     }
-    .cheapest{
+
+    .cheapest {
         color: #0c8bfd;
     }
-    .img{
+
+    .img {
         position: absolute;
         margin-left: 850px;
-        margin-top:-350px;    }
-        .text{
-            color: #908f8f;
-            font-size: 20px;
-            margin-left: 80px;
-            margin-top: -48px;
-        }
-        .start{
+        margin-top: -350px;
+    }
 
-        }
-        .free{
-            
-        }
+    .text {
+        color: #908f8f;
+        font-size: 20px;
+        margin-left: 80px;
+        margin-top: -48px;
+    }
+
+    .start {
+        height: 40px;
+        width: 125px;
+        border-radius: 80px;
+        background: #0c8bfd;
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        margin-left: 80px;
+        margin-top: 22px;
+        border: none;
+    }
+
+    .free {
+        height: 40px;
+        width: 135px;
+        border-radius: 80px;
+        background: #111010;
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        border-color: white;
+        border-width: 1px;
+        margin-left: 20px;
+    }
+
+    .logo-strip {
+        background: #1d1c1c;
+        margin-top: 200px;
+        padding: 60px 0;
+    }
+
+    .logo-row {
+        display: flex;
+        gap: 150px;
+        padding-left: 290px;
+    }
+
+    .sec2 {
+        margin-top: -20px;
+        background: #ffffff;
+        padding: 400px;
+    }
+
+    .para1 {
+        color: black;
+        font-weight: bold;
+        font-size: 50px;
+        margin-top: -250px;
+        position: absolute;
+    }
+
+    .para2 {
+        margin-top: -170px;
+        margin-left: 190px;
+        color: #8b8a8a;
+    }
+
+    .para3 {
+        margin-top: -5px;
+        margin-left: 255px;
+        color: #8b8a8a;
+    }
+
+    .faster {
+        background: white;
+        border-radius: 9px;
+        color: black;
+        padding: 30px 40px;
+        width: fit-content;
+        margin-top: 100px;
+        margin-left:-250px;
+        border:2px solid #afaeae;
+    }
+    .fast{
+        height: 70px;
+        margin-left: 65px;
+    }
+      .faster-head{
+        font-weight: bolder;
+        font-size: 19px;
+        margin-top:-20px;
+        margin-left: 5px;
+    }
+    .text3{
+        margin-left:15px;
+        margin-top: -12px;
+    }
+    .text4{
+        margin-top:-12px;
+        margin-left: 28px;
+    }
     .logo {}
 </style>
 
@@ -87,11 +183,39 @@
         <button class="login">Login</button>
     </nav>
     <main>
-        <p class="main_text">The best and <span class="cheapest"><br>cheapest&nbsp;</span>hosting <br>for your website</p>
-        <img class="img" src="/Project02- Hosting Site Landing Page/Project-2 Hosting Site/assets/Illustrations/Group 238502.svg" alt="...">
-        <p class="text">Hosting your website here is easy, access is fast, server<br> security is very well maintained, and of course<br> supported by reliable servers.</p>
+        <p class="main_text">The best and <span class="cheapest"><br>cheapest&nbsp;</span>hosting <br>for your website
+        </p>
+        <img class="img"
+            src="/Project02- Hosting Site Landing Page/Project-2 Hosting Site/assets/Illustrations/Group 238502.svg"
+            alt="...">
+        <p class="text">Hosting your website here is easy, access is fast, server<br> security is very well maintained,
+            and of course<br> supported by reliable servers.</p>
         <button class="start">Get Started</button>
         <button class="free">Try Start Free</button>
+        <section class="logo-strip">
+            <div class="container logo-row">
+                <img src="/Project02- Hosting Site Landing Page/Project-2 Hosting Site/assets/Logo-light.svg"
+                    height="30">
+                <img src="/Project02- Hosting Site Landing Page/Project-2 Hosting Site/assets/Logo-light.svg"
+                    height="30">
+                <img src="/Project02- Hosting Site Landing Page/Project-2 Hosting Site/assets/Logo-light.svg"
+                    height="30">
+                <img src="/Project02- Hosting Site Landing Page/Project-2 Hosting Site/assets/Logo-light.svg"
+                    height="30">
+            </div>
+        </section>
+        <section class="sec2">
+            <p class="para1">The best service especially for you</p>
+            <p class="para2">We will serve you as best we can with the aim of</p>
+            <p class="para3">providing satisfaction to you.</p>
+            <div class="faster">
+                <img class="fast" src="/Project02- Hosting Site Landing Page/Project-2 Hosting Site/assets/Icons/fast.svg">
+                <p class="faster-head"><br><br>Faster hosting process</p>
+                <p class="text2">We can speed up the creation of</p>
+                <p class="text3">your website, which is made</p>
+                <p class="text4">directly by the experts.</p>
+            </div>
+        </section>
     </main>
 </body>
 
