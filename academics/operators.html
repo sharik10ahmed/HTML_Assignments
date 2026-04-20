@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operator Demo</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; }
+        .result { background: #f4f4f4; padding: 10px; border-left: 5px solid #333; margin-bottom: 10px; }
+        b { color: #d9534f; }
+    </style>
+</head>
+<body>
+
+    <h2>JavaScript Operators Demo</h2>
+    <div id="output"></div>
+
+    <script>
+        const display = document.getElementById('output');
+
+        // 1. Arithmetic Operators (+, -, *, /, %)
+        let length = 10;
+        let width = 5;
+        let area = length * width; 
+        let perimeter = 2 * (length + width);
+
+        // 2. Assignment Operators (=, +=, -=, *=)
+        let score = 100;
+        score += 20; // Same as score = score + 20
+        
+        // 3. Comparison Operators (==, ===, >, <, !=)
+        let isHighSchool = score > 100;
+        let isPerfectMatch = (length === width);
+
+        // Constructing the output
+        display.innerHTML = `
+            <div class="result">
+                <strong>Arithmetic:</strong> Area of ${length}x${width} is <b>${area}</b>. 
+                Perimeter is <b>${perimeter}</b>.
+            </div>
+            
+            <div class="result">
+                <strong>Assignment:</strong> Initial score was 100, plus 20 bonus makes it <b>${score}</b>.
+            </div>
+            
+            <div class="result">
+                <strong>Comparison:</strong> Is the score higher than 100? <b>${isHighSchool}</b>.<br>
+                Is it a square (length equals width)? <b>${isPerfectMatch}</b>.
+            </div>
+        `;
+    </script>
+</body>
+</html>
