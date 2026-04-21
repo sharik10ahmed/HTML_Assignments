@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  Number 1: <input type="number" id="num1"><br><br>
+  Number 2: <input type="number" id="num2"><br><br>
+  
+  <button onclick="calculateSum()">Add</button>
+
+  <p id="result"></p>
+
+  <script>
+    function calculateSum() {
+      // 1. Get the values from the input boxes
+      // We use Number() to ensure JavaScript treats the input as math numbers, not text.
+      let firstVal = Number(document.getElementById("num1").value); // searches by id for the element with id "num1" and gets its value
+      let secondVal = Number(document.getElementById("num2").value);
+      
+      // 2. Arithmetic: Add them together and assign to 'result'
+      let result = firstVal + secondVal;
+      
+      // 3. Display the result on the screen
+      document.getElementById("result").innerHTML = "The total is: " + result;
+    }
+  </script>
+
+</body>
+</html>

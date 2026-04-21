@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+</head>
+<body>
+    
+    Number: <input type="number" id="num"><br><br>
+    <button onclick="Factorial()">Factorial</button>
+    
+    <p id="result"></p>
+
+    <script>
+        function Factorial() {
+            let n = Number(document.getElementById("num").value);
+            let result = 1;
+            
+            for (let i = 1; i <= n; i++) {
+                result *= i; // Multiplies the current result by the next number
+            }
+            
+            // 2. Changed document.write to target the paragraph above
+            document.getElementById("result").innerHTML = "Factorial is: " + result;
+            
+        } // 3. Added the missing closing brace here!
+    </script>
+</body>
+</html>

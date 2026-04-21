@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  Number: <input type="number" id="num">
+  <button onclick="checkPalindrome()">Check Palindrome</button>
+  
+  <p id="result"></p>
+
+  <script>
+    function checkPalindrome() {
+      let n = Number(document.getElementById("num").value);
+      let rev = 0;
+      
+      // The FOR loop handles the setup, condition, and chopping all on one line
+      for (let temp = n; temp > 0; temp = Math.floor(temp / 10)) {
+        rev = (rev * 10) + (temp % 10); 
+      }
+      
+      document.getElementById("result").innerHTML = (n === rev ? "Palindrome" : "Not a Palindrome");
+    }
+  </script>
+
+</body>
+</html>
