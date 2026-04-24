@@ -8,13 +8,14 @@
 <body>
     Number: <input type="number" id="num"><br><br>
     <button onclick="checkOddEven()">Check</button>
+    <p id="result"></p>
     <script>
         function checkOddEven() {
             let n = Number(document.getElementById("num").value);
             if (n % 2 === 0) {
-                document.write("Even");
+                document.getElementById("result").innerHTML = "Even";
             } else {
-                document.write("Odd");
+                document.getElementById("result").innerHTML = "Odd";
             }}
     </script>
 </body>
