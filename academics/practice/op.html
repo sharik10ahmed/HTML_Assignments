@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .result_text {
+            font-size: 40px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="result_text" id="1"></div>
+    <div class="result_text" id="2"></div>
+    <div class="result_text" id="3"></div>
+    <div class="result_text" id="4"></div>
+    <div class="result_text" id="5"></div>
+    <div class="result_text" id="6"></div>
+    <script>
+        let a = 5;
+        let b = 2;
+        let add = a + b;
+        let sub = a - b;
+        let divide = a / b;
+        let mod = a * b;
+        let rem = a % b;
+        let p=1;
+        p++;
+        p--;
+        let exp = p ** p;
+        document.getElementById("1").innerHTML = "Add-> " + add;
+        document.getElementById("2").innerHTML = "SUB-> " + sub;
+        document.getElementById("3").innerHTML = "DIVIDE-> " + divide;
+        document.getElementById("4").innerHTML = "MOD-> " + mod;
+        document.getElementById("5").innerHTML = "REM-> " + rem;
+        document.getElementById("6").innerHTML = "EXP-> " + exp;
+
+
+    </script>
+</body>
+
+</html>
