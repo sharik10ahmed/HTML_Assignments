@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width initial-scale=1.0">
+<title>Greatest</title>
+<body>
+<h2>Greatest Number</h2>
+<label for="number1">Number 1:</label>
+<input type="number" id="num1"><br><br>
+<label for="number2">Number 2:</label>
+<input type="number" id="num2"><br><br>
+<label for="number3">Number 3:</label>
+<input type="number" id="num3"><br><br>
+<p id="result"></p>
+<button onclick="greatest()">Greatest of ALL</button>
+<script>
+function greatest(){
+let a = Number(document.getElementById("num1").value);
+let b = Number(document.getElementById("num2").value);
+let c = Number(document.getElementById("num3").value);
+if(a>=b && a>=c){
+document.getElementById("result").innerHTML = a + " is the Greatest of ALL ";
+}
+else if(b>=a && b>=c){
+document.getElementById("result").innerHTML = b + " is the Greatest of ALL ";
+}
+else {
+document.getElementById("result").innerHTML = c + " is the Greatest of ALL ";
+}
+}
+</script>
+</body>
+</html>
+

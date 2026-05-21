@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palindrome</title>
+</head>
+<body>
+<h2>Palindrome CHECKER</h2>
+<label for="number">Number:</label>
+<input type="number" id="num"><br><br>
+<button onclick="palindrome()">Check</button>
+<p id="result"></p>
+<script>
+function palindrome(){ 
+let n = Number(document.getElementById("num").value);
+let rev=0;
+for(let temp=n;temp>0;temp = Math.floor(temp/10)){
+rev = (rev*10) + (temp % 10);
+}
+document.getElementById("result").innerHTML = (n === rev ? "Palindrome" : "Not a Palindrome");
+}
+</script>
+</body>
+</html>
