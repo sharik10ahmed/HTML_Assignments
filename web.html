@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="CloudLayer is a modern hosting platform for fast, secure, and scalable websites.">
+  <title>CloudLayer Hosting</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'sans-serif']
+          },
+          colors: {
+            ink: '#0B1016',
+            cloud: '#F7FAFC',
+            ocean: '#0C8BFD',
+            mint: '#2DD4BF',
+            amber: '#F7B955'
+          },
+          boxShadow: {
+            soft: '0 18px 60px rgba(15, 23, 42, 0.12)'
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-cloud text-slate-900 antialiased">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-ink/95 backdrop-blur">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
+      <a href="#" class="flex items-center gap-3">
+        <img class="h-8 w-auto" src="./Project02-%20Hosting%20Site%20Landing%20Page/Project-2%20Hosting%20Site/assets/Logo-light.svg"
+          alt="CloudLayer">
+      </a>
+
+      <div class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
+        <a class="transition hover:text-white" href="#hosting">Hosting</a>
+        <a class="transition hover:text-white" href="#features">Features</a>
+        <a class="transition hover:text-white" href="#pricing">Pricing</a>
+        <a class="transition hover:text-white" href="#security">Security</a>
+        <a class="transition hover:text-white" href="#support">Support</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a class="hidden rounded-full px-4 py-2 text-sm font-semibold text-slate-200 transition hover:bg-white/10 md:inline-flex"
+          href="#">Sign in</a>
+        <a class="inline-flex items-center gap-2 rounded-full bg-ocean px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-ocean/30 transition hover:bg-blue-500"
+          href="#pricing">
+          Start free
+          <i data-lucide="arrow-right" class="h-4 w-4"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hosting" class="relative overflow-hidden bg-ink text-white">
+      <div class="absolute inset-0 opacity-20"
+        style="background-image: radial-gradient(circle at 20% 20%, #0C8BFD 0, transparent 28%), radial-gradient(circle at 80% 10%, #2DD4BF 0, transparent 24%);">
+      </div>
+
+      <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-24">
+        <div>
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-slate-200">
+            <i data-lucide="sparkles" class="h-4 w-4 text-amber"></i>
+            Enterprise-grade cloud hosting for growing teams
+          </div>
+          <h1 class="max-w-3xl text-4xl font-black leading-tight tracking-normal sm:text-5xl lg:text-7xl">
+            Launch faster on hosting built for real business traffic.
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            Deploy sites, APIs, stores, and client projects on a managed platform with global edge delivery, automatic
+            scaling, daily backups, and expert support when it matters.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a class="inline-flex items-center justify-center gap-2 rounded-full bg-ocean px-6 py-3 text-sm font-bold text-white shadow-xl shadow-ocean/30 transition hover:bg-blue-500"
+              href="#pricing">
+              Choose a plan
+              <i data-lucide="server" class="h-4 w-4"></i>
+            </a>
+            <a class="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10"
+              href="#features">
+              View features
+              <i data-lucide="play-circle" class="h-4 w-4"></i>
+            </a>
+          </div>
+
+          <dl class="mt-10 grid max-w-2xl grid-cols-3 gap-4 border-t border-white/10 pt-8">
+            <div>
+              <dt class="text-2xl font-black">99.99%</dt>
+              <dd class="mt-1 text-sm text-slate-400">Uptime SLA</dd>
+            </div>
+            <div>
+              <dt class="text-2xl font-black">42ms</dt>
+              <dd class="mt-1 text-sm text-slate-400">Avg edge response</dd>
+            </div>
+            <div>
+              <dt class="text-2xl font-black">24/7</dt>
+              <dd class="mt-1 text-sm text-slate-400">Senior support</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="relative">
+          <img class="mx-auto w-full max-w-xl drop-shadow-2xl"
+            src="./Project02-%20Hosting%20Site%20Landing%20Page/Project-2%20Hosting%20Site/assets/Illustrations/Group%20238502.svg"
+            alt="Cloud hosting dashboard illustration">
+          <div class="mt-6 grid gap-3 sm:grid-cols-3 lg:absolute lg:bottom-4 lg:left-6 lg:right-6 lg:mt-0">
+            <div class="rounded-lg border border-white/10 bg-white/10 p-4 backdrop-blur">
+              <i data-lucide="shield-check" class="mb-3 h-5 w-5 text-mint"></i>
+              <p class="text-sm font-bold">WAF included</p>
+            </div>
+            <div class="rounded-lg border border-white/10 bg-white/10 p-4 backdrop-blur">
+              <i data-lucide="rocket" class="mb-3 h-5 w-5 text-amber"></i>
+              <p class="text-sm font-bold">One-click deploy</p>
+            </div>
+            <div class="rounded-lg border border-white/10 bg-white/10 p-4 backdrop-blur">
+              <i data-lucide="activity" class="mb-3 h-5 w-5 text-ocean"></i>
+              <p class="text-sm font-bold">Live metrics</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-900 py-8">
+      <div class="mx-auto grid max-w-7xl grid-cols-2 items-center gap-8 px-5 opacity-80 sm:grid-cols-4 lg:px-8">
+        <img class="mx-auto h-7" src="./Project02-%20Hosting%20Site%20Landing%20Page/Project-2%20Hosting%20Site/assets/Logo-light.svg"
+          alt="Partner logo">
+        <img class="mx-auto h-7" src="./Project02-%20Hosting%20Site%20Landing%20Page/Project-2%20Hosting%20Site/assets/Logo-light.svg"
+          alt="Partner logo">
+        <img class="mx-auto h-7" src="./Project02-%20Hosting%20Site%20Landing%20Page/Project-2%20Hosting%20Site/assets/Logo-light.svg"
+          alt="Partner logo">
+        <img class="mx-auto h-7" src="./Project02-%20Hosting%20Site%20Landing%20Page/Project-2%20Hosting%20Site/assets/Logo-light.svg"
+          alt="Partner logo">
+      </div>
+    </section>
+
+    <section id="features" class="bg-white py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-ocean">Managed platform</p>
+          <h2 class="mt-3 text-3xl font-black leading-tight sm:text-5xl">Everything teams expect from modern hosting.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-600">
+            Build with a hosting stack that keeps performance, protection, and operational visibility in one place.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-3">
+          <article class="rounded-lg border border-slate-200 bg-white p-8 shadow-soft">
+            <img class="h-16 w-16" src="./Project02-%20Hosting%20Site%20Landing%20Page/Project-2%20Hosting%20Site/assets/Icons/fast.svg"
+              alt="">
+            <h3 class="mt-8 text-xl font-black">Faster setup</h3>
+            <p class="mt-3 leading-7 text-slate-600">Provision projects, databases, SSL, redirects, and preview URLs from one dashboard.</p>
+          </article>
+          <article class="rounded-lg bg-ink p-8 text-white shadow-soft md:-translate-y-6">
+            <img class="h-16 w-16" src="./Project02-%20Hosting%20Site%20Landing%20Page/Project-2%20Hosting%20Site/assets/Icons/signal.svg"
+              alt="">
+            <h3 class="mt-8 text-xl font-black">Global speed</h3>
+            <p class="mt-3 leading-7 text-slate-300">Serve content through edge locations with intelligent caching and HTTP/3 delivery.</p>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-8 shadow-soft">
+            <img class="h-16 w-16" src="./Project02-%20Hosting%20Site%20Landing%20Page/Project-2%20Hosting%20Site/assets/Icons/heart.svg"
+              alt="">
+            <h3 class="mt-8 text-xl font-black">Human support</h3>
+            <p class="mt-3 leading-7 text-slate-600">Reach senior engineers in under three minutes through chat, tickets, or priority phone.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="security" class="bg-cloud py-20 lg:py-28">
+      <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-ocean">Operations</p>
+          <h2 class="mt-3 text-3xl font-black leading-tight sm:text-5xl">Control your infrastructure without fighting it.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-600">
+            CloudLayer keeps the powerful parts visible and automates the repetitive parts, so your team can ship
+            instead of babysitting servers.
+          </p>
+        </div>
+
+        <div class="grid gap-4">
+          <div class="flex items-center justify-between rounded-lg bg-ocean p-5 text-white shadow-soft">
+            <span class="text-lg font-black">Main features</span>
+            <i data-lucide="check-circle-2" class="h-6 w-6"></i>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-lg bg-white p-5 shadow-sm">
+              <i data-lucide="gauge" class="h-6 w-6 text-ocean"></i>
+              <h3 class="mt-4 font-black">Speed optimization</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">Smart caching, image compression, and instant cache purges.</p>
+            </div>
+            <div class="rounded-lg bg-white p-5 shadow-sm">
+              <i data-lucide="lock-keyhole" class="h-6 w-6 text-ocean"></i>
+              <h3 class="mt-4 font-black">Security hardening</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">DDoS mitigation, malware scanning, and automatic patches.</p>
+            </div>
+            <div class="rounded-lg bg-white p-5 shadow-sm">
+              <i data-lucide="database-backup" class="h-6 w-6 text-ocean"></i>
+              <h3 class="mt-4 font-black">Daily backups</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">Restore full projects, individual files, or databases in minutes.</p>
+            </div>
+            <div class="rounded-lg bg-white p-5 shadow-sm">
+              <i data-lucide="headphones" class="h-6 w-6 text-ocean"></i>
+              <h3 class="mt-4 font-black">Technical support</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">Migration, monitoring, incident review, and launch assistance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="bg-ink py-20 text-white lg:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div class="max-w-2xl">
+            <p class="text-sm font-black uppercase tracking-[0.2em] text-mint">Pricing</p>
+            <h2 class="mt-3 text-3xl font-black leading-tight sm:text-5xl">Plans that scale with your workload.</h2>
+          </div>
+          <p class="max-w-md leading-7 text-slate-300">Start small, move up when traffic grows, and keep every plan backed by the same platform standards.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+          <article class="rounded-lg border border-white/10 bg-white p-8 text-slate-900">
+            <h3 class="text-xl font-black">Starter</h3>
+            <p class="mt-3 text-slate-600">For portfolio sites, landing pages, and first client projects.</p>
+            <p class="mt-8 text-4xl font-black">$12<span class="text-base font-semibold text-slate-500">/mo</span></p>
+            <a class="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 px-5 py-3 text-sm font-bold transition hover:bg-slate-100"
+              href="#">Get Starter <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+            <ul class="mt-8 space-y-4 text-sm text-slate-700">
+              <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 text-ocean"></i>10 websites</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 text-ocean"></i>50 GB bandwidth</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 text-ocean"></i>Free SSL and backups</li>
+            </ul>
+          </article>
+
+          <article class="rounded-lg bg-ocean p-8 text-white shadow-2xl shadow-ocean/30 lg:-translate-y-5">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-black">Business</h3>
+              <span class="rounded-full bg-white px-3 py-1 text-xs font-black uppercase tracking-wider text-ocean">Popular</span>
+            </div>
+            <p class="mt-3 text-blue-50">For stores, apps, and teams with production traffic.</p>
+            <p class="mt-8 text-4xl font-black">$29<span class="text-base font-semibold text-blue-100">/mo</span></p>
+            <a class="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-ocean transition hover:bg-blue-50"
+              href="#">Get Business <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+            <ul class="mt-8 space-y-4 text-sm text-blue-50">
+              <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5"></i>Unlimited websites</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5"></i>250 GB bandwidth</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5"></i>Staging and team roles</li>
+            </ul>
+          </article>
+
+          <article class="rounded-lg border border-white/10 bg-white p-8 text-slate-900">
+            <h3 class="text-xl font-black">Scale</h3>
+            <p class="mt-3 text-slate-600">For agencies, platforms, and high-volume launches.</p>
+            <p class="mt-8 text-4xl font-black">$79<span class="text-base font-semibold text-slate-500">/mo</span></p>
+            <a class="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 px-5 py-3 text-sm font-bold transition hover:bg-slate-100"
+              href="#">Talk to sales <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+            <ul class="mt-8 space-y-4 text-sm text-slate-700">
+              <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 text-ocean"></i>Custom resources</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 text-ocean"></i>Priority support</li>
+              <li class="flex gap-3"><i data-lucide="check" class="h-5 w-5 text-ocean"></i>Dedicated account review</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" class="bg-white py-20 lg:py-28">
+      <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-ocean">Support</p>
+          <h2 class="mt-3 text-3xl font-black leading-tight sm:text-5xl">Real experts, available around the clock.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-600">
+            Get migration help, launch reviews, and production troubleshooting from engineers who understand websites
+            beyond the control panel.
+          </p>
+        </div>
+
+        <div class="grid gap-5">
+          <blockquote class="rounded-lg bg-cloud p-6">
+            <div class="mb-4 flex gap-1 text-amber">
+              <i data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 fill-current"></i><i
+                data-lucide="star" class="h-5 w-5 fill-current"></i><i data-lucide="star" class="h-5 w-5 fill-current"></i><i
+                data-lucide="star" class="h-5 w-5 fill-current"></i>
+            </div>
+            <p class="text-lg font-semibold leading-8">"Our launch handled a 6x traffic spike without a single emergency call. The migration team was sharp and fast."</p>
+            <footer class="mt-5 text-sm font-bold text-slate-500">Aarav Mehta, Product Lead</footer>
+          </blockquote>
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div class="rounded-lg border border-slate-200 p-6">
+              <i data-lucide="message-circle" class="h-6 w-6 text-ocean"></i>
+              <h3 class="mt-4 font-black">150-second response</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">Live chat routing brings urgent requests directly to senior support.</p>
+            </div>
+            <div class="rounded-lg border border-slate-200 p-6">
+              <i data-lucide="clipboard-check" class="h-6 w-6 text-ocean"></i>
+              <h3 class="mt-4 font-black">Launch reviews</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">Performance, security, DNS, and backup checks before campaigns go live.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-cloud py-20">
+      <div class="mx-auto max-w-4xl px-5 lg:px-8">
+        <h2 class="text-center text-3xl font-black sm:text-4xl">Questions teams ask before moving to CloudLayer.</h2>
+        <div class="mt-10 divide-y divide-slate-200 rounded-lg bg-white shadow-sm">
+          <details class="group p-6" open>
+            <summary class="flex cursor-pointer list-none items-center justify-between font-black">
+              Can you migrate my existing website?
+              <i data-lucide="chevron-down" class="h-5 w-5 transition group-open:rotate-180"></i>
+            </summary>
+            <p class="mt-4 leading-7 text-slate-600">Yes. Business and Scale plans include migration support for files, databases, DNS, and SSL.</p>
+          </details>
+          <details class="group p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-black">
+              Is SSL included?
+              <i data-lucide="chevron-down" class="h-5 w-5 transition group-open:rotate-180"></i>
+            </summary>
+            <p class="mt-4 leading-7 text-slate-600">Every website gets automatic SSL renewal, redirect controls, and HTTPS monitoring.</p>
+          </details>
+          <details class="group p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-black">
+              Can I host client projects?
+              <i data-lucide="chevron-down" class="h-5 w-5 transition group-open:rotate-180"></i>
+            </summary>
+            <p class="mt-4 leading-7 text-slate-600">Yes. Team roles, staging URLs, project labels, and billing exports are built for agencies.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white px-5 py-20 lg:px-8">
+      <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 rounded-lg bg-ink p-8 text-white shadow-soft md:flex-row md:items-center lg:p-12">
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-mint">Ready to deploy?</p>
+          <h2 class="mt-3 text-3xl font-black sm:text-4xl">Move your next website to faster hosting today.</h2>
+        </div>
+        <a class="inline-flex items-center justify-center gap-2 rounded-full bg-ocean px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-500"
+          href="#pricing">
+          Start free
+          <i data-lucide="arrow-right" class="h-4 w-4"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-ink px-5 py-10 text-slate-400 lg:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col justify-between gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center">
+      <img class="h-8 w-fit" src="./Project02-%20Hosting%20Site%20Landing%20Page/Project-2%20Hosting%20Site/assets/Logo-light.svg"
+        alt="CloudLayer">
+      <p class="text-sm">© 2026 CloudLayer Hosting. Built for fast, secure websites.</p>
+      <div class="flex gap-4">
+        <a class="transition hover:text-white" href="#" aria-label="Twitter"><i data-lucide="twitter" class="h-5 w-5"></i></a>
+        <a class="transition hover:text-white" href="#" aria-label="LinkedIn"><i data-lucide="linkedin" class="h-5 w-5"></i></a>
+        <a class="transition hover:text-white" href="#" aria-label="GitHub"><i data-lucide="github" class="h-5 w-5"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>
