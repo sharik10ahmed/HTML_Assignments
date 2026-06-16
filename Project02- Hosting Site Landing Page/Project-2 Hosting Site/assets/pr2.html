@@ -5,370 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 2</title>
-
-</head>
-<style>
-    body {
-        background-color: #111010;
-    }
-
-    nav {
-        display: flex;
-        margin-left: 80px;
-    }
-
-    ul {
-        display: flex;
-        gap: 50px;
-    }
-
-    ul li {
-        list-style-type: none;
-    }
-
-    ul li a {
-        text-decoration: none;
-    }
-
-    .home {
-        color: #9a9999;
-        margin-left: 200px;
-    }
-
-    .navcolor {
-        color: #9a9999;
-    }
-
-    .login {
-        color: white;
-        font-size: medium;
-        font-weight: bold;
-        border: none;
-        border-radius: 80px;
-        background: #0c8bfd;
-        height: 40px;
-        width: 90px;
-        margin-left: 400px;
-    }
-
-    .main_text {
-        color: white;
-        font-weight: bold;
-        font-size: 80px;
-        margin-left: 80px;
-    }
-
-    .cheapest {
-        color: #0c8bfd;
-    }
-
-    .img {
-        position: absolute;
-        margin-left: 850px;
-        margin-top: -350px;
-    }
-
-    .text {
-        color: #908f8f;
-        font-size: 20px;
-        margin-left: 80px;
-        margin-top: -48px;
-    }
-
-    .start {
-        height: 40px;
-        width: 125px;
-        border-radius: 80px;
-        background: #0c8bfd;
-        color: white;
-        font-size: 13px;
-        font-weight: bold;
-        margin-left: 80px;
-        margin-top: 22px;
-        border: none;
-    }
-
-    .free {
-        height: 40px;
-        width: 135px;
-        border-radius: 80px;
-        background: #111010;
-        color: white;
-        font-size: 13px;
-        font-weight: bold;
-        border-color: white;
-        border-width: 1px;
-        margin-left: 20px;
-    }
-
-    .logo-strip {
-        background: #1d1c1c;
-        margin-top: 200px;
-        padding: 60px 0;
-    }
-
-    .logo-row {
-        display: flex;
-        gap: 150px;
-        padding-left: 290px;
-    }
-
-    .sec2 {
-        margin-top: -20px;
-        background: #ffffff;
-        padding: 400px;
-    }
-
-    .para1 {
-        color: black;
-        font-weight: bold;
-        font-size: 50px;
-        margin-top: -250px;
-        position: absolute;
-    }
-
-    .para2 {
-        margin-top: -170px;
-        margin-left: 190px;
-        color: #8b8a8a;
-    }
-
-    .para3 {
-        margin-top: -5px;
-        margin-left: 255px;
-        color: #8b8a8a;
-    }
-
-    .faster {
-        background: white;
-        border-radius: 9px;
-        color: black;
-        padding: 30px 40px;
-        width: fit-content;
-        margin-top: 100px;
-        margin-left: -120px;
-        border: 2px solid #afaeae;
-
-    }
-
-    .fast {
-        height: 70px;
-        margin-left: 65px;
-    }
-
-    .faster-head {
-        font-weight: bolder;
-        font-size: 19px;
-        margin-top: -20px;
-        margin-left: 5px;
-    }
-
-    .text3 {
-        margin-left: 15px;
-        margin-top: -12px;
-    }
-
-    .text4 {
-        margin-top: -12px;
-        margin-left: 28px;
-    }
-
-    .speed {
-        background: #111010;
-        border-radius: 9px;
-        color: #b4b3b3;
-        padding: 30px 40px;
-        width: fit-content;
-        margin-top: -310px;
-        margin-left: 200px;
-        border: 2px solid #111010;
-    }
-
-    .speed_img {
-        height: 70px;
-        margin-left: 65px;
-    }
-
-    .speed-head {
-        font-weight: bolder;
-        font-size: 19px;
-        margin-top: 20px;
-        margin-left: 5px;
-        color: white;
-    }
-
-    .text5 {
-        margin-left: 35px;
-    }
-
-    .text6 {
-        margin-top: -12px;
-    }
-
-    .text7 {
-        margin-top: -12px;
-    }
-
-    .service {
-        background: white;
-        border-radius: 9px;
-        color: black;
-        padding: 30px 40px;
-        width: fit-content;
-        margin-top: -250px;
-        margin-left: 520px;
-        position: absolute;
-        border: 2px solid #111010;
-    }
-
-    .service_img {
-        height: 70px;
-        margin-left: 65px;
-    }
-
-    .service-head {
-        font-weight: bolder;
-        font-size: 19px;
-        margin-top: 18px;
-        margin-left: 15px;
-    }
-
-    .text9 {
-        margin-top: -12px;
-        margin-left: 8px;
-    }
-
-    .text10 {
-        margin-top: -12px;
-        margin-left: 70px;
-    }
-
-    .sub-heading {
-        font-size: 45px;
-        font-weight: bolder;
-        margin-top: 100px;
-        margin-right: -100px;
-        margin-left: -120px;
-        position: absolute;
-    }
-
-    .pile_body {
-        border-radius: 100px;
-        margin-top: 250px;
-        margin-left: -115px;
-        background: #0c8bfd;
-        width: 405px;
-        height: 75px;
-    }
-
-    .pile1 {
-        margin-top: -47px;
-        margin-left: -90px;
-        color: white;
-        font-weight: bolder;
-        font-size: 19px;
-    }
-
-    .pile_body2 {
-        border-radius: 100px;
-        margin-top: 38px;
-        margin-left: -113px;
-        background: white;
-        width: 400px;
-        height: 75px;
-        border: 2px solid #afaeae;
-    }
-
-    .pile2 {
-        margin-top: -47px;
-        margin-left: -90px;
-        color: black;
-        font-weight: bolder;
-        font-size: 19px;
-    }
-
-    .pile_body3 {
-        border-radius: 100px;
-        margin-top: 38px;
-        margin-left: -113px;
-        background: white;
-        width: 400px;
-        height: 75px;
-        border: 2px solid #afaeae;
-    }
-
-    .pile3 {
-        margin-top: -47px;
-        margin-left: -90px;
-        color: black;
-        font-weight: bolder;
-        font-size: 19px;
-
-    }
-
-    .pile_body4 {
-        border-radius: 100px;
-        margin-top: 38px;
-        margin-left: -113px;
-        background: white;
-        width: 400px;
-        height: 75px;
-        border: 2px solid #afaeae;
-    }
-
-    .pile4 {
-        margin-top: -47px;
-        margin-left: -90px;
-        color: black;
-        font-weight: bolder;
-        font-size: 19px;
-    }
-
-    .pile_body5 {
-        border-radius: 100px;
-        margin-top: 38px;
-        margin-left: -113px;
-        background: white;
-        width: 400px;
-        height: 75px;
-        border: 2px solid #afaeae;
-    }
-
-    .pile5 {
-        margin-top: -47px;
-        margin-left: -90px;
-        color: black;
-        font-weight: bolder;
-        font-size: 19px;
-    }
-
-    .pile_black_body {
-        border-radius: 30px;
-        margin-top: -450px;
-        margin-left: 350px;
-        background: #111010;
-        width: 450px;
-        height: 500px;
-    }
-
-    .pile_black {
-        border-radius: 100px;
-        margin-top: -470px;
-        margin-left: 365px;
-        background: #292828;
-        width: 415px;
-        height: 75px;
-    }
-
-    .pile_bl1 {
-        margin-top: -800px;
-        margin-left: -365px;
-        color: black;
-        font-weight: bolder;
-        font-size: 19px;
-        position: absolute;
-    }
-</style>
+    <link rel="stylesheet" href="./Style.css" </head>
 
 <body>
     <nav>
@@ -450,7 +87,271 @@
 
             <div class="pile_black_body"></div>
             <div class="pile_black"></div>
-            <p class="pile_bl1">Number of Websites</p>
+            <p class="pile_bl">Number of Websites</p>
+
+            <div class="pile_black1"></div>
+            <p class="pile_bl1">Number of Email Accounts</p>
+
+            <div class="pile_black2"></div>
+            <p class="pile_bl2">Unlimited MySQL Databases</p>
+
+            <div class="pile_black2"></div>
+            <p class="pile_bl2">Unlimited Bandwidth</p>
+
+            <div class="pile_black2"></div>
+            <p class="pile_bl2">Unlimited Sub & Parked Domains</p>
+
+            <div class="pile_black2"></div>
+            <p class="pile_bl2">30 Days Unconditional Guarantee</p>
+
+            <div class="pile_black2"></div>
+            <p class="pile_bl2">Free Domain</p>
+
+            <div class="pile_black2"></div>
+            <p class="pile_bl2">Disk Space</p>
+
+        </section>
+
+        <section class="sec3">
+            <p class="sec3_para">Hosting your website with the</p>
+            <p class="sec3_para2">services we provide</p>
+
+            <div class="sec3_pile_white_body1"></div>
+            <img class="sec3_img_arrow" src="./Icons/arrow-left.svg">
+            <img class="sec3_img_rightarrow" src="./Icons/arrow-right.svg">
+
+            <p class="sec3_text1">Regular</p>
+
+            <p class="sec3_text2">$8,9</p>
+            <p class="sec3_text2_1">/month</p>
+
+            <p class="sec3_text3">Suitable for you who will build a website <br>and others.</p>
+
+            <div class="sec3_text3_1">
+                <hr><br>
+            </div>
+
+            <img class="sec3_img_bluetick1" src="./Icons/blue-tick.svg">
+            <p class="sec3_text4">Up to 16,000 Visitors/Month</p>
+
+            <img class="sec3_img_bluetick1" src="./Icons/blue-tick.svg">
+            <p class="sec3_text4">500MB SSD Disk</p>
+
+            <img class="sec3_img_bluetick1" src="./Icons/blue-tick.svg">
+            <p class="sec3_text4">Unlimited Bandwidth</p>
+
+            <img class="sec3_img_bluetick1" src="./Icons/blue-tick.svg">
+            <p class="sec3_text4">Unlimited Databases</p>
+
+            <img class="sec3_img_bluetick1" src="./Icons/blue-tick.svg">
+            <p class="sec3_text4">Instant Backup</p>
+
+            <img class="sec3_img_bluetick1" src="./Icons/blue-tick.svg">
+            <p class="sec3_text4">1 Email Account</p>
+
+            <img class="sec3_img_bluetick1" src="./Icons/blue-tick.svg">
+            <p class="sec3_text4">1 Domain</p>
+
+            <button class="sec3_btn">Select</button>
+
+            <div class="sec3_pile_white_body2"></div>
+
+            <p class="sec3_bd2_text1">Standard</p>
+
+            <p class="sec3_bd2_text2">$12,98</p>
+            <p class="sec3_bd2_text2_1">/month</p>
+
+            <p class="sec3_bd2_text3">Suitable for business, such as a<br> website or management system for<br>
+                complaints</p>
+            <div class="sec3_bd2_text3_1">
+                <hr>
+            </div>
+
+            <img class="sec3_bd2_img_whitetick1" src="./Icons/white-tick.svg">
+            <p class="sec3_bd2_text4">Up to 36,000 Visitors/Month </p>
+
+            <img class="sec3_bd2_img_whitetick1" src="./Icons/white-tick.svg">
+            <p class="sec3_bd2_text4">Unlimited SSD Disk Space</p>
+
+            <img class="sec3_bd2_img_whitetick1" src="./Icons/white-tick.svg">
+            <p class="sec3_bd2_text4">Unlimited Bandwidth</p>
+
+            <img class="sec3_bd2_img_whitetick1" src="./Icons/white-tick.svg">
+            <p class="sec3_bd2_text4">Unlimited Databases</p>
+
+            <img class="sec3_bd2_img_whitetick1" src="./Icons/white-tick.svg">
+            <p class="sec3_bd2_text4">Instant Backup</p>
+
+            <img class="sec3_bd2_img_whitetick1" src="./Icons/white-tick.svg">
+            <p class="sec3_bd2_text4">Unlimited Account</p>
+
+            <img class="sec3_bd2_img_whitetick1" src="./Icons/white-tick.svg">
+            <p class="sec3_bd2_text4">Unlimited Addon Domain</p>
+
+            <button class="sec3_bd2_btn">Select</button>
+
+            <div class="sec3_pile_white_body3"></div>
+
+            <p class="sec3_bd3_text1">Premium</p>
+
+            <p class="sec3_bd3_text2">$19,99</p>
+            <p class="sec3_bd3_text2_1">/month</p>
+
+            <p class="sec3_bd3_text3">Suitable for those of you who need<br> special physical server performance<br> and
+                security</p>
+            <div class="sec3_bd3_text3_1">
+                <hr>
+            </div>
+
+            <div class="sec3_bd3_whole">
+                <div class="list-item">
+                    <img class="sec3_bd3_img_bluetick1" src="./Icons/blue-tick.svg">
+                    <p class="sec3_bd3_text4">Up to 200,000 Visitors/Month</p>
+                </div>
+
+                <div class="list-item">
+                    <img class="sec3_bd3_img_bluetick1" src="./Icons/blue-tick.svg">
+                    <p class="sec3_bd3_text4">500MB SSD Disk Space</p>
+                </div>
+
+                <div class="list-item">
+                    <img class="sec3_bd3_img_bluetick1" src="./Icons/blue-tick.svg">
+                    <p class="sec3_bd3_text4">Unlimited Bandwidth</p>
+                </div>
+
+                <div class="list-item">
+                    <img class="sec3_bd3_img_bluetick1" src="./Icons/blue-tick.svg">
+                    <p class="sec3_bd3_text4">Unlimited Databases</p>
+                </div>
+
+                <div class="list-item">
+                    <img class="sec3_bd3_img_bluetick1" src="./Icons/blue-tick.svg">
+                    <p class="sec3_bd3_text4">Instant Backup</p>
+                </div>
+
+                <div class="list-item">
+                    <img class="sec3_bd3_img_bluetick1" src="./Icons/blue-tick.svg">
+                    <p class="sec3_bd3_text4">Unlimited Account</p>
+                </div>
+
+                <div class="list-item">
+                    <img class="sec3_bd3_img_bluetick1" src="./Icons/blue-tick.svg">
+                    <p class="sec3_bd3_text4">Free Domain</p>
+                </div>
+            </div>
+
+            <button class="sec3_bd3_btn">Select</button>
+
+
+        </section>
+
+        <section class="sec4">
+            <p class="sec4_text1">What do our<br> Customers say?</p>
+            <p class="sec4_text2">You will definitely be surprised how our customers<br>comment on what we do so well,
+                because we really<br>prioritize the satisfaction of our customers.</p>
+
+            <div class="sec4_pile_Black_body1"></div>
+            <p class="sec4_pile_black_text1">Slamet Wijaya</p>
+            <p class="sec4_pile_black_text2">CEO Tokped</p>
+            <p class="sec4_pile_black_text3">Web Hosting that I highly recommend because<br>the service provided is very
+                good, hosting is<br>fast so with a pretty fantastic speed.</p>
+            <div class="arr">
+                <img src="./Icons/Star.svg">
+                <img src="./Icons/Star.svg">
+                <img src="./Icons/Star.svg">
+                <img src="./Icons/Star.svg">
+                <img src="./Icons/Star.svg">
+            </div>
+            <svg class="quote-icon" width="65" height="50" viewBox="0 0 65 50" xmlns="http://www.w3.org/2000/svg">
+                <text x="-5" y="60" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="90"
+                    fill="#0c8bfd">‘</text>
+                <text x="30" y="60" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="90"
+                    fill="#144b82">‘</text>
+            </svg>
+
+            <div class="sec4_pile_white_body1"></div>
+            <svg class="quote-icon2" width="65" height="50" viewBox="0 0 65 50" xmlns="http://www.w3.org/2000/svg">
+                <text x="-5" y="60" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="90"
+                    fill="#0c8bfd">‘</text>
+                <text x="30" y="60" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="90"
+                    fill="#144b82">‘</text>
+                <p class="sec4_pile_white_text1">Turman Tasim</p>
+                <p class="sec4_pile_white_text2">CEO Sickuy</p>
+                <p class="sec4_pile_white_text3">I am very satisfied with the web hosting because <br>the service is
+                    very
+                    good. The servers are fast,<br> so the speed is quite fantastic.</p>
+
+                <div class="arr2">
+                    <img src="./Icons/Star.svg">
+                    <img src="./Icons/Star.svg">
+                    <img src="./Icons/Star.svg">
+                    <img src="./Icons/Star.svg">
+                    <img src="./Icons/Star.svg">
+                </div>
+
+                <div class="sec4_line">
+                    <hr>
+                </div>
+                <div class="sec4_line2">
+                    <hr>
+                </div>
+
+        </section>
+
+        <section class="sec5">
+            <p class="sec5_text1">Sign Up now for as much hosting and<br>&nbsp;domain as you want for $20.99/year</p>
+
+            <div class="sec5_pile_main_body"></div>
+
+            <div class="sec5_pile_body1"></div>
+            <p class="sec5_pile_text1">Name</p>
+
+            <div class="sec5_pile_body2"></div>
+            <p class="sec5_pile_text2">E-mail Address</p>
+
+            <div class="sec5_pile_body3"></div>
+            <p class="sec5_pile_text3">Password</p>
+
+            <div class="sec5_pile_body4"></div>
+            <p class="sec5_pile_text4">Sign Up</p>
+
+            <div class="sec5_line1">
+                <hr>
+            </div>
+
+            <p class="sec5_item1_text1">Company</p>
+
+            <p class="sec5_item1_text2">About us</p>
+            <p class="sec5_item1_text3">Contact us</p>
+            <p class="sec5_item1_text3">Carier</p>
+            <p class="sec5_item1_text3">Blog</p>
+
+            <p class="sec5_item2_text1">Features</p>
+
+            <p class="sec5_item2_text2">Domain</p>
+            <p class="sec5_item2_text3">Hosting</p>
+            <p class="sec5_item2_text3">WordPress</p>
+            <p class="sec5_item2_text3">Web Security</p>
+
+            <p class="sec5_item3_text1">Help</p>
+
+            <p class="sec5_item3_text2">Payment method</p>
+            <p class="sec5_item3_text3">Know Ledgebase</p>
+            <p class="sec5_item3_text3">Tutorials</p>
+
+            <p class="sec5_item4_text1">Socia Media</p>
+
+            <p class="sec5_item4_text2">Domain</p>
+            <p class="sec5_item4_text3">Hosting</p>
+            <p class="sec5_item4_text3">WordPress</p>
+            <p class="sec5_item4_text3">Web Security</p>
+
+             <div class="sec5_line2">
+                <hr>
+            </div>
+
+            <img class="sec5_logo" src="./Logo-light.svg">
+
         </section>
 
     </main>
