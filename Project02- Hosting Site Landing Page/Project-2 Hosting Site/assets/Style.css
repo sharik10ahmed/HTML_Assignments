@@ -177,7 +177,7 @@ ul li a {
 
 .speed_img {
     height: 70px;
-    margin-left: 65px;
+    margin-left: 58px;
 }
 
 .speed-head {
@@ -745,10 +745,14 @@ ul li a {
 }
 
 .quote-icon {
-    margin-top: -250px;
+    margin-top: -265px;
     margin-left: -270px;
     position: absolute;
-    /* You can also use width and height here if you want to make it bigger or smaller! */
+}
+.quote-icon_1{
+    margin-top: -265px;
+    margin-left: -243px;
+    position: absolute;
 }
 
 .sec4_pile_white_body1 {
@@ -765,7 +769,11 @@ ul li a {
     margin-top: -315px;
     margin-left: 330px;
     position: absolute;
-    /* You can also use width and height here if you want to make it bigger or smaller! */
+}
+.quote-icon2_1 {
+    margin-top: -315px;
+    margin-left: 356px;
+    position: absolute;
 }
 
 .sec4_pile_white_text1 {
