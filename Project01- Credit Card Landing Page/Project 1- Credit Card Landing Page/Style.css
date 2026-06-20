@@ -7,6 +7,8 @@
      margin-left: 72px;
      color: #e7e7e7;
      font-weight: lighter;
+     position: relative; 
+     z-index: 1;
  }
 
  ul li a {
@@ -23,7 +25,7 @@
  }
 
  .navcolor2 {
-     padding-left: 310px;
+     padding-left: 337px;
      color: white;
  }
 
@@ -528,20 +530,17 @@
     margin: 0;
     height: 12px;
 }
-.sec4{
-    height: 1500px;
-}
 .footer_img1{
     margin-top: 150px;
     margin-left: -447px;
     width: 1520px;
-    z-index: -3;
+    z-index: -2;
 }
 .footer_img2{
     margin-top: -560px;
     margin-left: -447px;
     width: 1520px;
-    z-index: -2;
+    z-index: -1;
     
 }
 .footer_img3{
@@ -557,4 +556,81 @@
     height: 575px;
     position: absolute;
     
+}
+.footer_text1{
+    color: #e7e7e7;
+    margin-top: -430px;
+    margin-left: -200px;
+    font-size: 78px;
+    position: absolute;
+    font-weight:520;
+}
+.footer_text2{
+    color: #151515;
+    margin-top: -430px;
+    margin-left: 120px;
+    font-size: 78px;
+    position: absolute;
+    font-weight:520;
+}
+.footer_text3{
+    color: #e7e7e7;
+    margin-top: -430px;
+    margin-left: 520px;
+    font-size: 78px;
+    position: absolute;
+    font-weight:520;
+    
+}
+.footer_text4{
+    color: #e7e7e7;
+    margin-top: -350px;
+    margin-left: 70px;
+    font-size: 78px;
+    position: absolute;
+    font-weight:520;
+    white-space: nowrap;
+}
+ .footer_btn_text {
+     position: absolute;
+     color: #e7e7e7;
+     margin-top: -200px;
+    margin-left: 130px;
+     line-height: 1.5;
+     font-size: 25px;
+     text-decoration: none;
+     z-index: 2;
+ }
+ .footer_RightArrow {
+     position: absolute;
+     margin-top: -188px;
+    margin-left: 300px;
+ }
+ .footer_pink_button {
+    position: absolute;
+    z-index: 1;
+    margin-top: -199px; 
+    margin-left: 100px;
+    height: 35px; 
+}
+.footer_bar{
+    display:flex;
+    margin-top: -150px;
+    margin-left:72px;
+    color:#e7e7e7;
+    font-weight: lighter;
+}
+.footer_navcolor{
+    color:white;
+  
+}
+.logo{
+    height: 40px;
+}
+.footer_navcolor2{
+    color:white;
+    margin-left: 300px;
+}
+.sec4{
+    height: 1300px;
 }
