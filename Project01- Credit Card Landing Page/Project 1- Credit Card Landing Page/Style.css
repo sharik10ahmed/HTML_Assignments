@@ -560,7 +560,7 @@
 .footer_text1{
     color: #e7e7e7;
     margin-top: -430px;
-    margin-left: -200px;
+    margin-left: -150px;
     font-size: 78px;
     position: absolute;
     font-weight:520;
@@ -568,7 +568,7 @@
 .footer_text2{
     color: #151515;
     margin-top: -430px;
-    margin-left: 120px;
+    margin-left: 170px;
     font-size: 78px;
     position: absolute;
     font-weight:520;
@@ -576,7 +576,7 @@
 .footer_text3{
     color: #e7e7e7;
     margin-top: -430px;
-    margin-left: 520px;
+    margin-left: 570px;
     font-size: 78px;
     position: absolute;
     font-weight:520;
@@ -585,7 +585,7 @@
 .footer_text4{
     color: #e7e7e7;
     margin-top: -350px;
-    margin-left: 70px;
+    margin-left: 120px;
     font-size: 78px;
     position: absolute;
     font-weight:520;
@@ -595,7 +595,7 @@
      position: absolute;
      color: #e7e7e7;
      margin-top: -200px;
-    margin-left: 130px;
+    margin-left: 199px;
      line-height: 1.5;
      font-size: 25px;
      text-decoration: none;
@@ -604,13 +604,13 @@
  .footer_RightArrow {
      position: absolute;
      margin-top: -188px;
-    margin-left: 300px;
+    margin-left: 372px;
  }
  .footer_pink_button {
     position: absolute;
     z-index: 1;
     margin-top: -199px; 
-    margin-left: 100px;
+    margin-left: 175px;
     height: 35px; 
 }
 .footer_bar{
