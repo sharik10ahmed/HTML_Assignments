@@ -2,7 +2,7 @@
   <h1 align="center">Web Development Odyssey 🚀</h1>
   <p align="center">
     <strong>A structured journey mastering HTML5, CSS3, and modern JavaScript.</strong>
-  </p>
+  </p> 
   
   <p align="center">
     <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
