@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DivorceConnect India - MVP Architectural Pitch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+        .slide-active { display: block; animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col antialiased selection:bg-zinc-800 selection:text-white">
+
+    <!-- Top Navigation Header -->
+    <header class="border-b border-zinc-900 bg-zinc-950/80 backdrop-blur sticky top-0 z-50 px-8 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center font-bold text-black text-sm">DC</div>
+            <span class="text-sm font-semibold tracking-wide text-zinc-200 uppercase">DivorceConnect <span class="text-amber-500">India</span></span>
+        </div>
+        <div class="flex items-center space-x-4 text-xs font-medium text-zinc-400">
+            <span>System Architecture & Investor Deck</span>
+            <span class="px-2 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-300">MVP Edition · 2026</span>
+        </div>
+    </header>
+
+    <!-- Presentation Stage Workspace -->
+    <div class="flex-1 flex overflow-hidden">
+        
+        <!-- Left Sidebar: Interactive Slide Tracker -->
+        <aside class="w-80 border-r border-zinc-900 bg-zinc-950 p-6 hidden md:block overflow-y-auto">
+            <h3 class="text-xs font-bold tracking-widest text-zinc-500 uppercase mb-4">Architecture Slides</h3>
+            <nav class="space-y-1" id="sidebar-nav">
+                <button onclick="goToSlide(1)" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all bg-gradient-to-r from-zinc-900 to-zinc-950 border border-zinc-800 text-amber-500 shadow-sm nav-item" id="nav-1">1. Infrastructure Engine</button>
+                <button onclick="goToSlide(2)" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 nav-item" id="nav-2">2. Identity Access Gates</button>
+                <button onclick="goToSlide(3)" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 nav-item" id="nav-3">3. Marketplace Profiles</button>
+                <button onclick="goToSlide(4)" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 nav-item" id="nav-4">4. Lawyer Verification Wall</button>
+                <button onclick="goToSlide(5)" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 nav-item" id="nav-5">5. Case Lifecycle Setup</button>
+                <button onclick="goToSlide(6)" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 nav-item" id="nav-6">6. 7-Milestone Pipeline</button>
+                <button onclick="goToSlide(7)" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 nav-item" id="nav-7">7. Cloudinary Document Engine</button>
+                <button onclick="goToSlide(8)" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 nav-item" id="nav-8">8. Aggregate Validation Gate</button>
+                <button onclick="goToSlide(9)" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 nav-item" id="nav-9">9. Dual-Channel Alerts</button>
+                <button onclick="goToSlide(10)" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 nav-item" id="nav-10">10. Case Chat Architecture</button>
+                <button onclick="goToSlide(11)" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 nav-item" id="nav-11">11. Razorpay Payments Engine</button>
+                <button onclick="goToSlide(12)" class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/50 nav-item" id="nav-12">12. Automated Enforcement</button>
+            </nav>
+        </aside>
+
+        <!-- Main Slide Display Canvas -->
+        <main class="flex-1 bg-gradient-to-b from-zinc-900/40 to-zinc-950 p-6 md:p-12 overflow-y-auto flex flex-col justify-between">
+            
+            <div id="slides-container" class="my-auto">
+                <!-- SLIDE 1: Infrastructure Engine -->
+                <section id="slide-1" class="slide-active hidden">
+                    <span class="text-xs font-bold tracking-widest text-amber-500 uppercase bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full">Slide 01 // Core Engine</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-2">From Legacy Monolith to Asynchronous, Event-Driven Legal Infrastructure</h2>
+                    <p class="text-zinc-400 text-sm max-w-2xl mb-8">Built for complexity, engineered for scale, utilizing modern decoupled stack components.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-5">
+                            <div class="text-amber-500 text-lg mb-2">🚀</div>
+                            <h4 class="text-xs font-bold tracking-wider text-zinc-200 uppercase mb-2">Async Engine</h4>
+                            <p class="text-zinc-400 text-xs leading-relaxed">FastAPI (async/await) powering non-blocking IO via routers and native @app.websocket layers.</p>
+                        </div>
+                        <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-5">
+                            <div class="text-amber-500 text-lg mb-2">🗄️</div>
+                            <h4 class="text-xs font-bold tracking-wider text-zinc-200 uppercase mb-2">Data Layer</h4>
+                            <p class="text-zinc-400 text-xs leading-relaxed">PostgreSQL driven by Async SQLAlchemy DeclarativeBase with structured Alembic Migrations.</p>
+                        </div>
+                        <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-5">
+                            <div class="text-amber-500 text-lg mb-2">⚡</div>
+                            <h4 class="text-xs font-bold tracking-wider text-zinc-200 uppercase mb-2">Event Layer</h4>
+                            <p class="text-zinc-400 text-xs leading-relaxed">NATS Message Broker tightly decoupled from distributed async background workers via Taskiq.</p>
+                        </div>
+                        <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-5">
+                            <div class="text-amber-500 text-lg mb-2">🎨</div>
+                            <h4 class="text-xs font-bold tracking-wider text-zinc-200 uppercase mb-2">Render Layer</h4>
+                            <p class="text-zinc-400 text-xs leading-relaxed">Jinja2 Template ecosystem running pure client-side optimizations and custom backend filters.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 bg-zinc-900/20 border border-zinc-900 rounded-lg p-3 text-center text-xs text-zinc-500">
+                        Client Request &rarr; FastAPI Router &rarr; Async DB Query (PostgreSQL) / Taskiq Background Job &rarr; WebSocket / HTTP Response
+                    </div>
+                </section>
+
+                <!-- SLIDE 2: Identity Access Gates -->
+                <section id="slide-2" class="hidden">
+                    <span class="text-xs font-bold tracking-widest text-amber-500 uppercase bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full">Slide 02 // Authentication</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-2">One Identity Gateway. Four Roles. Zero Ambiguity.</h2>
+                    <p class="text-zinc-400 text-sm max-w-2xl mb-8">JWT-Secured, Role-Stratified Access Architecture built on HS256 algorithms and OAuth2 Password Bearer middleware.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div class="border border-zinc-800 bg-zinc-900/20 rounded-xl p-4">
+                            <span class="text-xs font-bold px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">👤 CLIENT</span>
+                            <ul class="text-xs text-zinc-400 space-y-1 mt-3">
+                                <li>· Case Creation</li>
+                                <li>· Document Upload</li>
+                                <li>· Razorpay Payment</li>
+                                <li>· Real-time tracking</li>
+                            </ul>
+                        </div>
+                        <div class="border border-zinc-800 bg-zinc-900/20 rounded-xl p-4">
+                            <span class="text-xs font-bold px-2 py-0.5 rounded bg-amber-500/10 text-amber-400">⚖️ LAWYER</span>
+                            <ul class="text-xs text-zinc-400 space-y-1 mt-3">
+                                <li>· Case Workspace Ops</li>
+                                <li>· Advance Pipeline Stages</li>
+                                <li>· Secure Client Chat</li>
+                                <li>· Profile Validation View</li>
+                            </ul>
+                        </div>
+                        <div class="border border-zinc-800 bg-zinc-900/20 rounded-xl p-4">
+                            <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">🛡️ STAFF</span>
+                            <ul class="text-xs text-zinc-400 space-y-1 mt-3">
+                                <li>· Document Review Queue</li>
+                                <li>· Flag Malicious Reports</li>
+                                <li>· Warning Assertions</li>
+                                <li>· Restricted Operations</li>
+                            </ul>
+                        </div>
+                        <div class="border border-zinc-800 bg-zinc-900/20 rounded-xl p-4">
+                            <span class="text-xs font-bold px-2 py-0.5 rounded bg-red-500/10 text-red-400">👑 SUPERADMIN</span>
+                            <ul class="text-xs text-zinc-400 space-y-1 mt-3">
+                                <li>· Global Platform Override</li>
+                                <li>· Schema Management</li>
+                                <li>· Unrestricted Mutations</li>
+                                <li>· Full Audit Log Access</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-zinc-900/50 border border-zinc-800 rounded-lg text-xs text-center text-zinc-400">
+                        <span class="text-amber-500 font-semibold">Token Flow:</span> Login Form &rarr; POST /api/auth/token &rarr; create_access_token() &rarr; LocalStorage &rarr; Auth Header &rarr; Role-Gated Routers
+                    </div>
+                </section>
+
+                <!-- SLIDE 3: Marketplace Profiles -->
+                <section id="slide-3" class="hidden">
+                    <span class="text-xs font-bold tracking-widest text-amber-500 uppercase bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full">Slide 03 // Models</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-2">Two Profiles. One Platform. A Legal Marketplace Architecture.</h2>
+                    <p class="text-zinc-400 text-sm max-w-2xl mb-6">How ClientProfile &amp; LawyerProfile extend the unified core authentication table.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-5 md:col-span-1">
+                            <h4 class="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-3">🏛️ accounts_baseuser</h4>
+                            <div class="space-y-1 text-xs font-mono text-zinc-300">
+                                <div>id (PK)</div>
+                                <div>email (Unique)</div>
+                                <div>password_hash</div>
+                                <div>role (ENUM)</div>
+                                <div>is_active (Boolean)</div>
+                                <div>is_staff (Boolean)</div>
+                            </div>
+                        </div>
+                        <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-5">
+                            <h4 class="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-3">👤 clients_clientprofile</h4>
+                            <div class="space-y-1 text-xs font-mono text-zinc-400">
+                                <div>user_id (FK &rarr; baseuser)</div>
+                                <div>marital_status (String)</div>
+                                <div>gender (String)</div>
+                                <div>mobile_number (String)</div>
+                                <div>custom_id (e.g. ci:12345)</div>
+                                <div>warnings_count (Integer)</div>
+                            </div>
+                        </div>
+                        <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-5">
+                            <h4 class="text-xs font-bold text-amber-500 uppercase tracking-wider mb-3">⚖️ lawyers_lawyerprofile</h4>
+                            <div class="space-y-1 text-xs font-mono text-zinc-400">
+                                <div>user_id (FK &rarr; baseuser)</div>
+                                <div>bar_registration_number</div>
+                                <div>specialization (String)</div>
+                                <div>consultation_fee (Numeric)</div>
+                                <div>rating (Float Aggregated)</div>
+                                <div>is_deleted (Soft Delete Flag)</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 4: Lawyer Verification Wall -->
+                <section id="slide-4" class="hidden">
+                    <span class="text-xs font-bold tracking-widest text-amber-500 uppercase bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full">Slide 04 // Validation Wall</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-2">The Verification Wall: How Rogue Lawyers Never Reach Clients</h2>
+                    <p class="text-zinc-400 text-sm max-w-2xl mb-8">Multi-stage administrative verification states controlling marketplace discovery indexes.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+                        <div class="p-5 rounded-xl border border-zinc-800 bg-zinc-900/10">
+                            <div class="text-xs font-bold tracking-wide uppercase px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 inline-block mb-3">STEP 1: SUBMITTED</div>
+                            <p class="text-xs text-zinc-400 leading-relaxed">Lawyer completes registration, inputs Bar Credentials, fees, and photo. Status is saved as <span class="text-amber-400 font-mono">PENDING</span>.</p>
+                        </div>
+                        <div class="p-5 rounded-xl border border-zinc-800 bg-zinc-900/10">
+                            <div class="text-xs font-bold tracking-wide uppercase px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 inline-block mb-3">STEP 2: UNDER REVIEW</div>
+                            <p class="text-xs text-zinc-400 leading-relaxed">Admin staff processes the entry via the isolated <span class="text-zinc-200 font-mono">AdminPanelProfile</span> queue. Enforcement gate checked via <span class="text-zinc-200 font-mono">is_staff</span> injection.</p>
+                        </div>
+                        <div class="p-5 rounded-xl border border-zinc-800 bg-zinc-900/10">
+                            <div class="text-xs font-bold tracking-wide uppercase px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 inline-block mb-3">STEP 3: ADJUDICATED</div>
+                            <p class="text-xs text-zinc-400 leading-relaxed">If approved, marketplace index flags change instantly, adding the layer into the active Client search workspace routing.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 5: Case Lifecycle Setup -->
+                <section id="slide-5" class="hidden">
+                    <span class="text-xs font-bold tracking-widest text-amber-500 uppercase bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full">Slide 05 // Case Flow Part I</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-2">The Case Lifecycle: Initiation to Assignment in Four Steps</h2>
+                    <p class="text-zinc-400 text-sm max-w-2xl mb-6">Deterministic state machine layout tracking documentation verification checkpoints before litigation activation.</p>
+                    
+                    <div class="relative pl-6 border-l border-zinc-800 space-y-4 text-xs">
+                        <div class="relative">
+                            <div class="absolute -left-[30px] top-0.5 w-4 h-4 rounded-full bg-amber-500 border border-zinc-950 flex items-center justify-center text-[9px] text-black font-bold">1</div>
+                            <h4 class="font-semibold text-white uppercase tracking-wider">Initiation (CASE_CREATED)</h4>
+                            <p class="text-zinc-400 mt-0.5">Client matches with verified Lawyer via <span class="font-mono text-zinc-300 text-[11px]">POST /api/client/cases</span>, spawning a unique CaseRequest containing a serialized custom_id layout.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[30px] top-0.5 w-4 h-4 rounded-full bg-amber-500 border border-zinc-950 flex items-center justify-center text-[9px] text-black font-bold">2</div>
+                            <h4 class="font-semibold text-white uppercase tracking-wider">Document Upload (DOCUMENT_VERIFICATION)</h4>
+                            <p class="text-zinc-400 mt-0.5">Core data parameters shift as client passes required verification inputs into database arrays, setting matching items to pending states.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[30px] top-0.5 w-4 h-4 rounded-full bg-amber-500 border border-zinc-950 flex items-center justify-center text-[9px] text-black font-bold">3</div>
+                            <h4 class="font-semibold text-white uppercase tracking-wider">Admin Gate (DOCUMENTS_VERIFIED)</h4>
+                            <p class="text-zinc-400 mt-0.5">The platform locks user modifications, prompting administration verification validation vectors to parse inputs directly without state overrides.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[30px] top-0.5 w-4 h-4 rounded-full bg-emerald-500 border border-zinc-950 flex items-center justify-center text-[9px] text-black font-bold">4</div>
+                            <h4 class="font-semibold text-white uppercase tracking-wider">Lawyer Assignment (LAWYER_ASSIGNED)</h4>
+                            <p class="text-zinc-400 mt-0.5">State machines transition, opening live dual socket routing instances between matched identifiers, and pushing notifications out instantly.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 6: 7-Milestone Pipeline -->
+                <section id="slide-6" class="hidden">
+                    <span class="text-xs font-bold tracking-widest text-amber-500 uppercase bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full">Slide 06 // Case Flow Part II</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-2">The Execution Engine: Seven Legal Milestones, One Deterministic Pipeline</h2>
+                    <p class="text-zinc-400 text-sm max-w-2xl mb-6">Lawyer-controlled progression state machine managed via <span class="text-amber-400 font-mono">PUT /cases/{id}/stage</span> requests.</p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-7 gap-2 text-center text-[11px]">
+                        <div class="p-3 bg-zinc-900/60 border border-zinc-800 rounded-lg"><div class="font-bold text-amber-500">M1</div><div class="font-medium mt-1 text-zinc-300">Petition Drafted</div></div>
+                        <div class="p-3 bg-zinc-900/60 border border-zinc-800 rounded-lg"><div class="font-bold text-amber-500">M2</div><div class="font-medium mt-1 text-zinc-300">Petition Filed</div></div>
+                        <div class="p-3 bg-zinc-900/60 border border-zinc-800 rounded-lg"><div class="font-bold text-amber-500">M3</div><div class="font-medium mt-1 text-zinc-300">First Motion</div></div>
+                        <div class="p-3 bg-zinc-900/60 border border-zinc-800 rounded-lg"><div class="font-bold text-amber-500">M4</div><div class="font-medium mt-1 text-zinc-300">Second Motion</div></div>
+                        <div class="p-3 bg-zinc-900/60 border border-zinc-800 rounded-lg"><div class="font-bold text-amber-500">M5</div><div class="font-medium mt-1 text-zinc-300">Decree Issued</div></div>
+                        <div class="p-3 bg-zinc-900/60 border border-emerald-500/30 rounded-lg md:col-span-2"><div class="font-bold text-emerald-400">M6 &amp; M7</div><div class="font-medium mt-1 text-emerald-200">Completed &amp; Rated</div></div>
+                    </div>
+
+                    <div class="mt-6 bg-zinc-900/30 border border-zinc-800 rounded-xl p-4">
+                        <h4 class="text-xs font-bold tracking-wider text-zinc-400 uppercase mb-2">⚡ System-Wide Cascade Event Execution Engine:</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs text-zinc-400">
+                            <div>1. DB Status Column Mutation &amp; Temporal Logging</div>
+                            <div>2. Audit Trail State Immutability Assertions</div>
+                            <div>3. Active WebSocket Client UI Re-render Broadcast</div>
+                            <div>4. Taskiq Distributed Outbox Email Dispatch</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 7: Cloudinary Document Engine -->
+                <section id="slide-7" class="hidden">
+                    <span class="text-xs font-bold tracking-widest text-amber-500 uppercase bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full">Slide 07 // Storage Engine</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-2">The Document Engine: Secure Upload, Persistent Storage, Instant Retrieval</h2>
+                    <p class="text-zinc-400 text-sm max-w-2xl mb-8">Cloudinary-backed execution pipeline bypassing direct application server file caching hazards entirely.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+                        <div class="bg-zinc-900/30 border border-zinc-800 rounded-xl p-5">
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-2">📤 UPLOAD LAYER</h4>
+                            <p class="text-zinc-400 leading-relaxed mb-2">Client selects targeted validation data objects (e.g. Identity tokens, Certificates, Notices) inside the case file workspace module UI.</p>
+                            <span class="font-mono text-[10px] text-amber-400">Trigger: POST /api/docs/upload</span>
+                        </div>
+                        <div class="bg-zinc-900/30 border border-zinc-800 rounded-xl p-5">
+                            <h4 class="font-bold text-amber-500 uppercase tracking-wider mb-2">☁️ STORAGE LAYER</h4>
+                            <p class="text-zinc-400 leading-relaxed">Server context executes an encrypted wrapper out to Cloudinary via specialized SDK parameters. Returns secure HTTPS resource links and deterministic delivery identifiers.</p>
+                        </div>
+                        <div class="bg-zinc-900/30 border border-zinc-800 rounded-xl p-5">
+                            <h4 class="font-bold text-white uppercase tracking-wider mb-2">📋 METADATA LAYER</h4>
+                            <p class="text-zinc-400 leading-relaxed">Instantiates explicit tracking matrices inside the <span class="font-mono text-zinc-300">lawyers_casedocument</span> system layout table, establishing relation maps instantly.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 8: Aggregate Validation Gate -->
+                <section id="slide-8" class="hidden">
+                    <span class="text-xs font-bold tracking-widest text-amber-500 uppercase bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full">Slide 08 // Aggregation Logic</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-2">The Verification Gate: The Last Line of Defence Before a Case Goes Live</h2>
+                    <p class="text-zinc-400 text-sm max-w-2xl mb-6">Complex data logic evaluating multi-item criteria states dynamically to enforce structural pipeline constraints.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+                        <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-5">
+                            <h4 class="font-bold text-zinc-300 uppercase tracking-wider mb-3">📊 Document-Level State Matrix Evaluation Logic:</h4>
+                            <div class="space-y-2 font-mono text-zinc-400">
+                                <div class="flex justify-between border-b border-zinc-900 pb-1"><span>Doc A (Pending) + Doc B (Verified)</span> <span class="text-red-400">Case BLOCKED</span></div>
+                                <div class="flex justify-between border-b border-zinc-900 pb-1"><span>Doc A (Verified) + Doc B (Rejected)</span> <span class="text-red-400">Case BLOCKED</span></div>
+                                <div class="flex justify-between pt-1"><span>All Verification Items == VERIFIED</span> <span class="text-emerald-400">AUTO-ADVANCE</span></div>
+                            </div>
+                        </div>
+                        <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-5">
+                            <h4 class="font-bold text-zinc-300 uppercase tracking-wider mb-2">🔄 Automated Pipeline Acceleration Pattern:</h4>
+                            <p class="text-zinc-400 leading-relaxed">Admin clicks APPROVE &rarr; Document mutations persist &rarr; Relational engine audits tracking arrays &rarr; Complete state criteria resolved &rarr; State shifts automatically to <span class="text-amber-400 font-mono">LAWYER_ASSIGNED</span>.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 9: Dual-Channel Alerts -->
+                <section id="slide-9" class="hidden">
+                    <span class="text-xs font-bold tracking-widest text-amber-500 uppercase bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full">Slide 09 // Real-Time Network</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-2">Always-On: The Real-Time WebSocket &amp; Async Notification Infrastructure</h2>
+                    <p class="text-zinc-400 text-sm max-w-2xl mb-6">Dual-channel alert execution architecture separating high-speed UI notifications from transactional outbox tasks.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+                        <div class="border border-zinc-800 p-5 rounded-xl bg-zinc-900/10">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span class="p-1 rounded bg-amber-500/20 text-amber-400 font-bold">⚡ IN-SESSION</span>
+                                <h4 class="font-semibold text-white uppercase tracking-wider">WebSocket Broadcast Layer</h4>
+                            </div>
+                            <p class="text-zinc-400 mb-2">Maintains dynamic execution states across active in-memory connection arrays.</p>
+                            <span class="font-mono text-zinc-400 block text-[10px]">Endpoint: /ws/notifications/{user_id}</span>
+                            <span class="font-mono text-zinc-500 block text-[10px] mt-1">Triggers: Stage Changes · Chat Hooks · Payment Confirmations</span>
+                        </div>
+                        <div class="border border-zinc-800 p-5 rounded-xl bg-zinc-900/10">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span class="p-1 rounded bg-blue-500/20 text-blue-400 font-bold">📬 OUT-OF-SESSION</span>
+                                <h4 class="font-semibold text-white uppercase tracking-wider">Taskiq Event Execution Worker</h4>
+                            </div>
+                            <p class="text-zinc-400 mb-2">Offloads long-running delivery processes out to localized message queues via NATS streaming.</p>
+                            <span class="font-mono text-zinc-400 block text-[10px]">Decorator: @broker.task (Asynchronous Queue)</span>
+                            <span class="font-mono text-zinc-500 block text-[10px] mt-1">Triggers: Account Warning Alerts · Verification Summaries</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 10: Case Chat Architecture -->
+                <section id="slide-10" class="hidden">
+                    <span class="text-xs font-bold tracking-widest text-amber-500 uppercase bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full">Slide 10 // Chat Messaging</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-2">Case Chat: Persistent, Real-Time, Attachment-Capable Legal Messaging</h2>
+                    <p class="text-zinc-400 text-sm max-w-2xl mb-6">Architectural review of the secure chat mechanism running multi-tenant storage configurations.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                        <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4">
+                            <h4 class="font-bold text-zinc-300 uppercase tracking-wider mb-2">🗄️ DATA MODEL STRUCTURE</h4>
+                            <div class="font-mono text-zinc-400 space-y-1">
+                                <div class="text-zinc-200">table: lawyers_casemessage</div>
+                                <div>· case_id (FK &rarr; CaseRequest)</div>
+                                <div>· sender_type (client / lawyer)</div>
+                                <div>· text (Text, Nullable)</div>
+                                <div>· attachment (Cloudinary URL)</div>
+                            </div>
+                        </div>
+                        <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-4 md:col-span-2">
+                            <h4 class="font-bold text-amber-500 uppercase tracking-wider mb-2">🔄 TRANSACTION DISPATCH FLOW PIPELINE</h4>
+                            <p class="text-zinc-400 leading-relaxed mb-3">Client dispatches payload to endpoint &rarr; Router intercepts request &rarr; DB executes record instantiation &rarr; Success returns internal transaction parameters &rarr; Live manager socket arrays pipe structured event blocks to opposite user context instantly.</p>
+                            <div class="p-2 bg-zinc-950 rounded border border-zinc-900 font-mono text-[10px] text-zinc-500 text-center">
+                                Client (POST) &rarr; API Router &rarr; PostgreSQL (Commit) &rarr; WS Connection Manager &rarr; Lawyer UI Render
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 11: Razorpay Payments Engine -->
+                <section id="slide-11" class="hidden">
+                    <span class="text-xs font-bold tracking-widest text-amber-500 uppercase bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full">Slide 11 // Ledger &amp; Payments</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-2">The Payments Engine: Razorpay-Verified, Signature-Protected, Audit-Complete</h2>
+                    <p class="text-zinc-400 text-sm max-w-2xl mb-6">Zero-trust transaction processing architecture utilizing multi-stage hook validation logic.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-left">
+                        <div class="p-4 rounded-xl border border-zinc-800 bg-zinc-900/20">
+                            <h5 class="font-bold text-white mb-2">STAGE 1: ORDER INITIATION</h5>
+                            <p class="text-zinc-400 mb-2">Client selects targeted advocate service. Platform creates custom internal rows configuration status tracking flags.</p>
+                            <span class="font-mono text-[10px] text-zinc-500 block">POST /payments/create_payment</span>
+                        </div>
+                        <div class="p-4 rounded-xl border border-zinc-800 bg-zinc-900/20">
+                            <h5 class="font-bold text-amber-500 mb-2">STAGE 2: CAPTURE ENGINE</h5>
+                            <p class="text-zinc-400 mb-2">Redirect layers pass transaction tokens over to secure external infrastructure handlers to capture payment details securely.</p>
+                            <span class="font-mono text-[10px] text-zinc-500 block">Returns: razorpay_payment_id</span>
+                        </div>
+                        <div class="p-4 rounded-xl border border-zinc-800 bg-zinc-900/20">
+                            <h5 class="font-bold text-white mb-2">STAGE 3: VERIFICATION</h5>
+                            <p class="text-zinc-400 mb-2">Backend maps signature codes via HMAC-SHA256 operations. Confirmed validations trigger database update pipelines.</p>
+                            <span class="font-mono text-[10px] text-emerald-400 block">Secure Webhook Validation Match</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 12: Automated Enforcement -->
+                <section id="slide-12" class="hidden">
+                    <span class="text-xs font-bold tracking-widest text-amber-500 uppercase bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-full">Slide 12 // Governance</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mt-4 mb-2">Trust &amp; Safety at Scale: Automated Enforcement &amp; Account Termination</h2>
+                    <p class="text-zinc-400 text-sm max-w-2xl mb-6">Algorithmic moderation rules preventing platform exploit patterns without relying on human interaction components.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                        <div class="bg-zinc-900/30 border border-zinc-800 rounded-xl p-4">
+                            <h4 class="font-bold text-red-400 uppercase tracking-wider mb-2">🚩 PROGRAMMATIC WARNING &amp; AUTO-BAN GATEWAYS</h4>
+                            <p class="text-zinc-400 leading-relaxed mb-2">When administration actions append a violation to user profiles, safety modules evaluate aggregate tallies instantly.</p>
+                            <div class="font-mono text-[10px] text-zinc-400 mt-2 space-y-1">
+                                <div>· Lawyer Platform Warnings &ge; 3 &rarr; <span class="text-red-400">Auto-Ban (is_active=False)</span></div>
+                                <div>· Client Exploitative Submissions &ge; 6 &rarr; <span class="text-red-400">Account Deactivated</span></div>
+                            </div>
+                        </div>
+                        <div class="bg-zinc-900/30 border border-zinc-800 rounded-xl p-4">
+                            <h4 class="font-bold text-zinc-300 uppercase tracking-wider mb-2">⏳ THE 14-DAY RETENTION DATA DELETION PIPELINE</h4>
+                            <p class="text-zinc-400 leading-relaxed">Initiating an exit route drops signed verification links to emails. Confirmations transition databases into time-restricted deactivation flags. After a 14-day window, system cron schedulers purge rows permanently.</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 border border-zinc-900 bg-zinc-950 rounded text-[11px] font-mono text-zinc-600 text-center">
+                        Active Profile &──► Deactivation Triggered &──► 14-Day Cooling Window &──► Permanent Irreversible DB Row Purge
+                    </div>
+                </section>
+            </div>
+
+            <!-- Bottom Interactive Control Tray -->
+            <div class="mt-12 pt-6 border-t border-zinc-900 flex items-center justify-between">
+                <div class="text-xs font-semibold tracking-wider text-zinc-500 uppercase">
+                    Slide <span id="current-slide-badge" class="text-zinc-200">1</span> of 12
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button onclick="prevSlide()" class="px-4 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-xs font-semibold tracking-wide transition duration-150 text-zinc-300">Previous</button>
+                    <button onclick="nextSlide()" class="px-5 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-black text-xs font-bold tracking-wide transition duration-150 shadow-lg shadow-amber-500/10">Next</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Presentation Controller Script Engine -->
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 12;
+
+        function updateUI() {
+            // Hide all slides
+            for(let i = 1; i <= totalSlides; i++) {
+                const element = document.getElementById(`slide-${i}`);
+                if(element) element.classList.add('hidden');
+                
+                // Reset sidebar buttons
+                const navItem = document.getElementById(`nav-${i}`);
+                if(navItem) {
+                    navItem.classList.remove('bg-gradient-to-r', 'from-zinc-900', 'to-zinc-950', 'border-zinc-800', 'text-amber-500', 'shadow-sm');
+                    navItem.classList.add('text-zinc-400', 'hover:text-zinc-200', 'hover:bg-zinc-900/50');
+                }
+            }
+
+            // Expose active slide
+            document.getElementById(`slide-${currentSlide}`).classList.remove('hidden');
+            document.getElementById(`slide-${currentSlide}`).classList.add('slide-active');
+
+            // Set active sidebar navigation status
+            const activeNav = document.getElementById(`nav-${currentSlide}`);
+            if(activeNav) {
+                activeNav.classList.remove('text-zinc-400', 'hover:text-zinc-200', 'hover:bg-zinc-900/50');
+                activeNav.classList.add('bg-gradient-to-r', 'from-zinc-900', 'to-zinc-950', 'border-zinc-800', 'text-amber-500', 'shadow-sm');
+                activeNav.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            // Sync counter text
+            document.getElementById('current-slide-badge').innerText = currentSlide;
+        }
+
+        function nextSlide() {
+            if(currentSlide < totalSlides) { currentSlide++; updateUI(); }
+        }
+
+        function prevSlide() {
+            if(currentSlide > 1) { currentSlide--; updateUI(); }
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateUI();
+        }
+
+        // Global hotkey integration for keyboard slide transitions
+        document.addEventListener('keydown', function(e) {
+            if(e.key === 'ArrowRight' || e.key === ' ') { nextSlide(); e.preventDefault(); }
+            if(e.key === 'ArrowLeft') { prevSlide(); e.preventDefault(); }
+        });
+    </script>
+</body>
+</html>
