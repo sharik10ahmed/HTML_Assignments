@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DivorceConnect India - Presentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-black: #0a0a0a;
+            --color-white: #ffffff;
+            --color-gold: #c5a059;
+            --color-gray: #4a4a4a;
+            --color-light-gray: #f5f5f5;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-black);
+            color: var(--color-white);
+            height: 100%;
+            scroll-behavior: smooth;
+        }
+
+        /* Slide Container */
+        .presentation {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        .slide {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+            padding: 2rem;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* Slide Variations */
+        .slide-dark {
+            background-color: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .slide-light {
+            background-color: var(--color-white);
+            color: var(--color-black);
+        }
+
+        .slide-gray {
+            background-color: var(--color-light-gray);
+            color: var(--color-black);
+        }
+
+        /* Typography */
+        h1, h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: var(--color-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--color-gold);
+        }
+
+        .slide-light h2, .slide-gray h2 {
+            color: var(--color-gold);
+        }
+
+        p, li {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 800px;
+            text-align: center;
+            color: inherit;
+            font-weight: 300;
+        }
+
+        .slide-light p, .slide-light li {
+            color: var(--color-gray);
+        }
+
+        .slide-gray p, .slide-gray li {
+            color: var(--color-gray);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-left: 3px solid var(--color-gold);
+            text-align: left;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .slide-light li, .slide-gray li {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        /* Specific Elements */
+        .founders {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            color: var(--color-gray);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .slide-dark .founders {
+            color: #888;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 8px;
+            background: rgba(0,0,0,0.4);
+        }
+        
+        .tech-item strong {
+            font-family: 'Cinzel', serif;
+            color: var(--color-gold);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .whats-next {
+            font-size: 3rem;
+            font-family: 'Cinzel', serif;
+            color: var(--color-gold);
+            text-align: center;
+            max-width: 1000px;
+            line-height: 1.4;
+        }
+
+        .logo-placeholder {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--color-gold);
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--color-gray);
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="presentation">
+
+        <!-- Slide 1: Title -->
+        <div class="slide slide-dark">
+            <h1>DivorceConnect India</h1>
+            <p style="color: var(--color-white); font-size: 1.5rem;">Simplifying Legal Processes with Trust & Transparency</p>
+            <div class="founders">
+                Created by Sharik Ahmed & Tridev Sharma (Founders)
+            </div>
+            <div class="slide-number">1 / 9</div>
+        </div>
+
+        <!-- Slide 2: Aim and Ambition -->
+        <div class="slide slide-light">
+            <div class="logo-placeholder">DCI</div>
+            <h2>Aim & Ambition</h2>
+            <p><strong>Our Aim:</strong> To bridge the gap between individuals seeking legal assistance and verified, experienced lawyers across India through a secure, completely digital platform.</p>
+            <p><strong>Our Ambition:</strong> To become India's leading digital legal ecosystem, making family law proceedings less daunting, highly accessible, and affordable for everyone.</p>
+            <div class="slide-number">2 / 9</div>
+        </div>
+
+        <!-- Slide 3: Tech Stack -->
+        <div class="slide slide-dark">
+            <div class="logo-placeholder">DCI</div>
+            <h2>Technology Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>Backend</strong>
+                    <span>FastAPI (Python)</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Frontend</strong>
+                    <span>Jinja2 Templates (HTML/CSS)</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Storage</strong>
+                    <span>Cloudinary</span>
+                </div>
+                <div class="tech-item">
+                    <strong>Deployment</strong>
+                    <span>Render</span>
+                </div>
+                <div class="tech-item" style="grid-column: 1 / -1;">
+                    <strong>Database</strong>
+                    <span>PostgreSQL</span>
+                </div>
+            </div>
+            <div class="slide-number">3 / 9</div>
+        </div>
+
+        <!-- Slide 4: Core Features -->
+        <div class="slide slide-gray">
+            <div class="logo-placeholder">DCI</div>
+            <h2>Platform Core</h2>
+            <ul>
+                <li><strong>Role-Based Portals:</strong> Dedicated, personalized interfaces for Clients and Lawyers to manage their unique workflows securely.</li>
+                <li><strong>Email Communications:</strong> Powered by Resend, ensuring critical platform notifications reach users reliably.</li>
+            </ul>
+            <div class="slide-number">4 / 9</div>
+        </div>
+
+        <!-- Slide 5: Case Lifecycle -->
+        <div class="slide slide-light">
+            <div class="logo-placeholder">DCI</div>
+            <h2>Case Management</h2>
+            <ul>
+                <li><strong>Structured Workflows:</strong> Guiding users step-by-step from initial document submission and verification to final resolution.</li>
+                <li><strong>Live Collaboration:</strong> Built-in chat systems allowing direct, secure communication between clients and their assigned lawyers.</li>
+            </ul>
+            <div class="slide-number">5 / 9</div>
+        </div>
+
+        <!-- Slide 6: Trust & Safety -->
+        <div class="slide slide-dark">
+            <div class="logo-placeholder">DCI</div>
+            <h2>Trust & Safety</h2>
+            <ul>
+                <li><strong>Lawyer Verification:</strong> Strict onboarding processes requiring valid Bar Council credentials, verified by our administrative team.</li>
+                <li><strong>Community Integrity:</strong> An integrated reporting system that automatically flags and moderates users to maintain a professional environment.</li>
+            </ul>
+            <div class="slide-number">6 / 9</div>
+        </div>
+
+        <!-- Slide 7: Integrated Payments -->
+        <div class="slide slide-gray">
+            <div class="logo-placeholder">DCI</div>
+            <h2>Secure Transactions</h2>
+            <ul>
+                <li><strong>Payment Integration:</strong> Seamless fee processing handled securely via Razorpay.</li>
+                <li><strong>Transparent Billing:</strong> Clear fee structures and automated digital receipts to ensure financial peace of mind.</li>
+            </ul>
+            <div class="slide-number">7 / 9</div>
+        </div>
+
+        <!-- Slide 8: What's Next -->
+        <div class="slide slide-dark">
+            <div class="logo-placeholder">DCI</div>
+            <div class="whats-next">
+                "Scaling our infrastructure, introducing intelligent case matching, and expanding our legal network to every district in India."
+            </div>
+            <div class="slide-number">8 / 9</div>
+        </div>
+
+        <!-- Slide 9: Future Roadmap -->
+        <div class="slide slide-light">
+            <div class="logo-placeholder">DCI</div>
+            <h2>Future Roadmap</h2>
+            <ul style="max-width: 900px; font-size: 1.1rem;">
+                <li>
+                    <strong>Frontend Technology Stack Migration</strong><br>
+                    <span style="color: var(--color-gray); font-size: 1rem;">Frontend: Next.js (React) or Vue.js (Nuxt.js) with TailwindCSS for styling and React Query for async state management.</span><br>
+                    <span style="color: var(--color-gray); font-size: 1rem;">Backend: Keep FastAPI as a pure JSON REST API (it is already well-structured for this). Drop Jinja2 completely.</span>
+                </li>
+                <li>
+                    <strong>SMS Alerts & Paid Subscription Plans</strong><br>
+                    <span style="color: var(--color-gray); font-size: 1rem;">SMS Integration: Integrate an SMS gateway (e.g., Twilio, MSG91, or AWS SNS) directly into the existing Taskiq/NATS worker pool to send high-priority SMS alerts alongside emails.</span><br>
+                    <span style="color: var(--color-gray); font-size: 1rem;">Subscription Tiering (SaaS Model): Expand the User or Profile models to include subscription_tier (Free, Pro, Enterprise). Use Razorpay Subscriptions (Recurring billing API) to gate premium features (e.g., higher profile visibility for lawyers).</span>
+                </li>
+            </ul>
+            <div class="slide-number">9 / 9</div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DivorceConnect India — MVP Architecture Deck</title>
+  <meta name="description" content="Investor-ready system architecture presentation for DivorceConnect India — Online Divorce & Lawyer Marketplace Platform." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════════
+       PREMIUM BLACK · WHITE · GOLD · GRAY DESIGN SYSTEM
+       DivorceConnect India — Investor Architecture Deck
+    ═══════════════════════════════════════════════════════════════════════ */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ── Core Palette ── */
+      --black:      #080808;
+      --black-2:    #0F0F0F;
+      --black-3:    #141414;
+      --black-4:    #1A1A1A;
+      --black-5:    #222222;
+
+      --white:      #F9F6F0;
+      --white-2:    #EDE8DF;
+      --white-3:    #D4CFC7;
+
+      --gold:       #C9A84C;
+      --gold-light: #E4C472;
+      --gold-pale:  #F0DAA0;
+      --gold-dark:  #9B7E35;
+      --gold-dim:   rgba(201,168,76,0.12);
+      --gold-line:  rgba(201,168,76,0.25);
+
+      --gray-1:     #8A8680;
+      --gray-2:     #5C5852;
+      --gray-3:     #3A3732;
+      --gray-4:     #282520;
+      --gray-line:  rgba(255,255,255,0.07);
+
+      /* ── Typography ── */
+      --font-display: 'Cormorant Garamond', serif;
+      --font-h:       'Outfit', sans-serif;
+      --font-b:       'Inter', sans-serif;
+      --font-m:       'JetBrains Mono', monospace;
+
+      /* ── Shadows ── */
+      --shadow-card: 0 8px 32px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+      --shadow-gold: 0 0 20px rgba(201,168,76,0.15);
+    }
+
+    html, body { height: 100%; }
+    body {
+      font-family: var(--font-b);
+      background: var(--black);
+      color: var(--white);
+      display: flex; flex-direction: column;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── Grain texture overlay ─────────────────────────────────────────── */
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.55;
+    }
+
+    /* ── Subtle radial gradient mesh ──────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 40% at 10% 15%, rgba(201,168,76,0.06) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 35% at 90% 85%, rgba(201,168,76,0.04) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,255,255,0.012) 0%, transparent 70%);
+    }
+
+    /* ── Scrollbars ───────────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--gray-3); border-radius: 99px; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       TOP HEADER
+    ════════════════════════════════════════════════════════════════════ */
+    .top-header {
+      position: relative; z-index: 100; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 60px;
+      background: rgba(8,8,8,0.95);
+      border-bottom: 1px solid var(--gray-line);
+      backdrop-filter: blur(24px);
+    }
+    .header-brand { display: flex; align-items: center; gap: 14px; }
+    .header-logo { height: 38px; width: auto; border-radius: 3px; }
+    .header-title {
+      font-family: var(--font-h);
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--white);
+    }
+    .header-title span { color: var(--gold); }
+    .header-divider { width: 1px; height: 18px; background: var(--gray-3); }
+    .header-subtitle { font-size: 11px; color: var(--gray-1); font-weight: 400; letter-spacing: 0.03em; }
+    .header-meta { display: flex; align-items: center; gap: 8px; }
+    .h-tag {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.04em;
+      padding: 4px 12px; border-radius: 4px;
+      background: var(--black-4);
+      border: 1px solid var(--gray-3);
+      color: var(--gray-1);
+    }
+    .h-tag.gold-tag {
+      background: var(--gold-dim);
+      border-color: var(--gold-line);
+      color: var(--gold-light);
+    }
+    .h-tag.live-tag {
+      background: rgba(201,168,76,0.08);
+      border-color: rgba(201,168,76,0.2);
+      color: var(--gold);
+    }
+    .h-tag.live-tag::before {
+      content: '';
+      display: inline-block; width: 5px; height: 5px;
+      background: var(--gold); border-radius: 50%;
+      margin-right: 6px; vertical-align: middle;
+      animation: blink 2.2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1; } 50% { opacity: 0.25; }
+    }
+
+    /* ════════════════════════════════════════════════════════════════════
+       SHELL
+    ════════════════════════════════════════════════════════════════════ */
+    .shell {
+      position: relative; z-index: 1;
+      display: flex; flex: 1; overflow: hidden;
+    }
+
+    /* ════════════════════════════════════════════════════════════════════
+       SIDEBAR
+    ════════════════════════════════════════════════════════════════════ */
+    .sidebar {
+      width: 260px; flex-shrink: 0;
+      display: flex; flex-direction: column;
+      background: rgba(8,8,8,0.9);
+      border-right: 1px solid var(--gray-line);
+      overflow: hidden;
+    }
+    .sidebar-inner { flex: 1; overflow-y: auto; padding: 22px 12px 16px; }
+    .sidebar-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gray-2);
+      padding: 0 10px 12px;
+    }
+    .nav-btn {
+      display: flex; align-items: flex-start; gap: 10px;
+      width: 100%; padding: 9px 10px;
+      border: none; background: none; cursor: pointer;
+      border-radius: 6px; text-align: left;
+      margin-bottom: 1px;
+      transition: background 0.15s ease;
+      border: 1px solid transparent;
+    }
+    .nav-btn:hover { background: rgba(255,255,255,0.03); }
+    .nav-btn.active {
+      background: rgba(201,168,76,0.07);
+      border-color: rgba(201,168,76,0.18);
+    }
+    .nav-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 4px;
+      background: var(--black-4);
+      border: 1px solid var(--gray-3);
+      font-size: 9px; font-weight: 700;
+      color: var(--gray-2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-m);
+      transition: all 0.15s;
+    }
+    .nav-btn.active .nav-num {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--black);
+    }
+    .nav-text {
+      font-size: 11px; font-weight: 500;
+      line-height: 1.4; color: var(--gray-2);
+      transition: color 0.15s;
+    }
+    .nav-btn:hover .nav-text { color: var(--gray-1); }
+    .nav-btn.active .nav-text { color: var(--white-2); font-weight: 600; }
+
+    /* Sidebar progress */
+    .sidebar-footer {
+      padding: 14px 16px;
+      border-top: 1px solid var(--gray-line);
+      background: rgba(8,8,8,0.6);
+    }
+    .prog-label { font-size: 9.5px; color: var(--gray-2); margin-bottom: 8px; font-weight: 500; letter-spacing: 0.04em; }
+    .prog-track { height: 2px; background: var(--black-5); border-radius: 99px; overflow: hidden; }
+    .prog-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-pale));
+      border-radius: 99px;
+      transition: width 0.45s cubic-bezier(0.4,0,0.2,1);
+      box-shadow: 0 0 8px rgba(201,168,76,0.4);
+    }
+
+    /* ════════════════════════════════════════════════════════════════════
+       STAGE
+    ════════════════════════════════════════════════════════════════════ */
+    .stage {
+      flex: 1; display: flex; flex-direction: column; overflow: hidden;
+    }
+    .slide-viewport {
+      flex: 1; overflow-y: auto;
+      padding: 40px 48px 24px;
+    }
+
+    /* ════════════════════════════════════════════════════════════════════
+       SLIDE ANIMATION
+    ════════════════════════════════════════════════════════════════════ */
+    .slide { display: none; }
+    .slide.active {
+      display: block;
+      animation: slideIn 0.35s cubic-bezier(0.4,0,0.2,1) forwards;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ════════════════════════════════════════════════════════════════════
+       SLIDE ANATOMY COMPONENTS
+    ════════════════════════════════════════════════════════════════════ */
+
+    /* Slide badge/tag */
+    .slide-tag {
+      display: inline-flex; align-items: center;
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 3px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-line);
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .slide-tag::before {
+      content: '◆';
+      font-size: 7px; margin-right: 8px;
+      opacity: 0.7;
+    }
+
+    /* Slide heading */
+    .slide-h {
+      font-family: var(--font-display);
+      font-size: 36px; font-weight: 600;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .slide-h em { color: var(--gold); font-style: italic; }
+
+    .slide-sub {
+      font-size: 13px; font-weight: 400;
+      color: var(--gray-1); line-height: 1.7;
+      max-width: 700px; margin-bottom: 32px;
+      border-left: 2px solid var(--gold-dark);
+      padding-left: 14px;
+    }
+
+    /* Gold rule divider */
+    .gold-rule {
+      height: 1px; margin: 20px 0;
+      background: linear-gradient(90deg, var(--gold-dark), rgba(201,168,76,0.1), transparent);
+    }
+    .subtle-rule {
+      height: 1px; margin: 16px 0;
+      background: var(--gray-line);
+    }
+
+    /* ════════════════════════════════════════════════════════════════════
+       CARDS
+    ════════════════════════════════════════════════════════════════════ */
+    .card {
+      background: var(--black-2);
+      border: 1px solid var(--gray-3);
+      border-radius: 8px;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      border-color: rgba(201,168,76,0.35);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card), var(--shadow-gold);
+    }
+    /* gold top strip */
+    .card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .card:hover::before { opacity: 1; }
+
+    /* card variants */
+    .card-gold {
+      background: linear-gradient(145deg, rgba(201,168,76,0.08), var(--black-2));
+      border-color: var(--gold-line);
+    }
+    .card-gold::before { opacity: 1; }
+    .card-gold:hover { border-color: rgba(201,168,76,0.5); }
+
+    .card-dark {
+      background: var(--black-3);
+      border-color: var(--gray-4);
+    }
+
+    /* card icon */
+    .card-icon { font-size: 20px; margin-bottom: 12px; display: block; }
+
+    /* card label (chip above title) */
+    .card-chip {
+      display: inline-block;
+      font-size: 8.5px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 3px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .card-chip.white {
+      background: rgba(255,255,255,0.05);
+      border-color: var(--gray-3);
+      color: var(--white-3);
+    }
+    .card-chip.dark {
+      background: var(--black-5);
+      border-color: var(--gray-3);
+      color: var(--gray-1);
+    }
+
+    .card-title {
+      font-family: var(--font-h);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .card-title.gold { color: var(--gold); }
+    .card-title.gray { color: var(--gray-1); }
+
+    .card-body { font-size: 12px; color: var(--gray-1); line-height: 1.65; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       GRID LAYOUTS
+    ════════════════════════════════════════════════════════════════════ */
+    .g4  { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+    .g3  { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .g2  { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+    .g12 { display: grid; grid-template-columns: 1fr 2fr; gap: 14px; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       FLOW ROW (bottom of slide)
+    ════════════════════════════════════════════════════════════════════ */
+    .flow-row {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+      background: var(--black-3);
+      border: 1px solid var(--gray-3);
+      border-left: 3px solid var(--gold-dark);
+      border-radius: 0 6px 6px 0;
+      padding: 13px 18px;
+      margin-top: 22px;
+    }
+    .flow-step {
+      font-family: var(--font-m);
+      font-size: 10.5px; font-weight: 400;
+      color: var(--gray-1);
+      white-space: nowrap;
+    }
+    .flow-step.accent { color: var(--gold); font-weight: 500; }
+    .flow-arrow { color: var(--gold-dark); font-size: 12px; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       ROLE MATRIX COMPONENTS
+    ════════════════════════════════════════════════════════════════════ */
+    .role-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 9.5px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 4px;
+      border: 1px solid var(--gray-3);
+      background: var(--black-4);
+      color: var(--white-2);
+      margin-bottom: 12px;
+    }
+    .role-badge.gold-badge {
+      background: var(--gold-dim);
+      border-color: var(--gold-line);
+      color: var(--gold-light);
+    }
+    .role-list { list-style: none; }
+    .role-list li {
+      font-size: 12px; color: var(--gray-1);
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .role-list li:last-child { border-bottom: none; }
+    .role-list li::before {
+      content: '—';
+      color: var(--gold-dark); font-weight: 600;
+      font-size: 12px; flex-shrink: 0;
+    }
+
+    /* ════════════════════════════════════════════════════════════════════
+       JWT FLOW STRIP
+    ════════════════════════════════════════════════════════════════════ */
+    .jwt-strip {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 0;
+      background: var(--black-3);
+      border: 1px solid var(--gray-3);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-top: 20px;
+    }
+    .jwt-step { display: flex; align-items: center; }
+    .jwt-pill {
+      font-family: var(--font-m);
+      font-size: 9.5px; font-weight: 500;
+      padding: 6px 11px; border-radius: 4px;
+      background: var(--black-4);
+      border: 1px solid var(--gray-3);
+      color: var(--white-3);
+      white-space: nowrap;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .jwt-pill:hover { border-color: var(--gold-line); color: var(--gold-light); }
+    .jwt-arrow { color: var(--gold-dark); margin: 0 6px; font-size: 13px; opacity: 0.6; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       DB SCHEMA FIELDS
+    ════════════════════════════════════════════════════════════════════ */
+    .db-field {
+      display: flex; align-items: baseline; gap: 8px;
+      padding: 5.5px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-family: var(--font-m);
+      font-size: 11px;
+    }
+    .db-field:last-child { border-bottom: none; }
+    .db-key   { color: var(--white-2); font-weight: 500; }
+    .db-type  { color: var(--gray-2); font-size: 9.5px; }
+    .db-note  { color: var(--gold); font-size: 9.5px; margin-left: auto; opacity: 0.8; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       STATUS LABELS
+    ════════════════════════════════════════════════════════════════════ */
+    .status-label {
+      display: inline-flex;
+      font-family: var(--font-m);
+      font-size: 9px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 3px;
+      margin-bottom: 10px;
+    }
+    .sl-pending  { background: rgba(201,168,76,0.1);  border: 1px solid rgba(201,168,76,0.22);  color: var(--gold); }
+    .sl-review   { background: rgba(180,150,60,0.08); border: 1px solid rgba(180,150,60,0.2);   color: var(--gold-light); }
+    .sl-approved { background: rgba(249,246,240,0.06); border: 1px solid rgba(249,246,240,0.14); color: var(--white-2); }
+    .sl-rejected { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: var(--gray-1); }
+    .sl-step     { background: var(--black-4); border: 1px solid var(--gray-3); color: var(--gray-1); }
+    .sl-verified { background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3); color: var(--gold-light); }
+
+    /* ════════════════════════════════════════════════════════════════════
+       VERTICAL TIMELINE
+    ════════════════════════════════════════════════════════════════════ */
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 10px; top: 10px; bottom: 10px;
+      width: 1px;
+      background: linear-gradient(180deg, var(--gold-dark), var(--gray-3));
+    }
+    .tl-item {
+      position: relative; margin-bottom: 18px;
+      padding: 16px 18px;
+      background: var(--black-2);
+      border: 1px solid var(--gray-3);
+      border-radius: 6px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .tl-item:hover {
+      border-color: rgba(201,168,76,0.3);
+      box-shadow: var(--shadow-card);
+    }
+    .tl-item::before {
+      content: attr(data-num);
+      position: absolute; left: -42px; top: 50%; transform: translateY(-50%);
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--black);
+      border: 1px solid var(--gold-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 800;
+      color: var(--gold);
+      font-family: var(--font-m);
+    }
+    .tl-title {
+      font-family: var(--font-h);
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--white); margin-bottom: 5px;
+    }
+    .tl-status {
+      display: inline-flex;
+      font-family: var(--font-m);
+      font-size: 9px; font-weight: 600; letter-spacing: 0.1em;
+      padding: 2px 9px; border-radius: 3px;
+      background: var(--gold-dim); border: 1px solid var(--gold-line);
+      color: var(--gold); margin-bottom: 7px;
+    }
+    .tl-desc { font-size: 12px; color: var(--gray-1); line-height: 1.6; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       MILESTONE GRID (7-column)
+    ════════════════════════════════════════════════════════════════════ */
+    .milestone-grid {
+      display: grid; grid-template-columns: repeat(7,1fr); gap: 8px;
+    }
+    .m-card {
+      padding: 14px 8px 12px;
+      background: var(--black-2);
+      border: 1px solid var(--gray-3);
+      border-radius: 6px;
+      text-align: center;
+      transition: all 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .m-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: var(--gold-dark); opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .m-card:hover { border-color: var(--gold-line); transform: translateY(-2px); box-shadow: var(--shadow-card); }
+    .m-card:hover::before { opacity: 1; }
+    .m-card.done {
+      background: linear-gradient(145deg, rgba(201,168,76,0.06), var(--black-2));
+      border-color: rgba(201,168,76,0.22);
+    }
+    .m-card.done::before { opacity: 1; }
+    .m-num { font-family: var(--font-m); font-size: 9.5px; font-weight: 700; color: var(--gold-dark); margin-bottom: 6px; }
+    .m-card.done .m-num { color: var(--gold); }
+    .m-label { font-family: var(--font-h); font-size: 10.5px; font-weight: 700; color: var(--white); line-height: 1.3; }
+    .m-sub { font-size: 9px; color: var(--gray-2); margin-top: 4px; line-height: 1.35; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       CASCADE BOX
+    ════════════════════════════════════════════════════════════════════ */
+    .cascade-box {
+      margin-top: 18px;
+      background: var(--black-3);
+      border: 1px solid var(--gray-3);
+      border-left: 2px solid var(--gold-dark);
+      border-radius: 0 6px 6px 0;
+      padding: 16px 20px;
+    }
+    .cascade-header {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gray-2); margin-bottom: 12px;
+    }
+    .cascade-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+    .cascade-item {
+      padding: 10px 12px;
+      background: var(--black-2);
+      border: 1px solid var(--gray-3);
+      border-radius: 5px;
+      font-size: 11.5px; color: var(--gray-1); line-height: 1.45;
+    }
+    .cascade-item strong { color: var(--white); display: block; margin-bottom: 3px; font-family: var(--font-h); font-size: 10.5px; letter-spacing: 0.03em; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       STATE TABLE
+    ════════════════════════════════════════════════════════════════════ */
+    .state-table { width: 100%; border-collapse: collapse; font-size: 11.5px; font-family: var(--font-m); }
+    .state-table th {
+      padding: 8px 12px;
+      background: var(--black-4);
+      color: var(--gray-2);
+      font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      text-align: left;
+      border-bottom: 1px solid var(--gray-3);
+    }
+    .state-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--gray-1);
+    }
+    .state-table tr:last-child td { border-bottom: none; }
+    .state-table tr:hover td { background: rgba(201,168,76,0.03); }
+    .t-blocked { color: #888; font-weight: 600; }
+    .t-adv     { color: var(--gold); font-weight: 600; }
+    .t-pend    { color: var(--white-3); }
+    .t-vrfd    { color: var(--white-2); font-weight: 500; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       SEQUENCE DIAGRAM
+    ════════════════════════════════════════════════════════════════════ */
+    .seq-wrap {
+      background: var(--black-2);
+      border: 1px solid var(--gray-3);
+      border-radius: 8px;
+      padding: 20px;
+      overflow-x: auto;
+    }
+    .seq-actors {
+      display: flex; justify-content: space-between; margin-bottom: 18px; gap: 6px;
+    }
+    .seq-actor {
+      flex: 1; text-align: center;
+      font-family: var(--font-h); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 7px 8px; border-radius: 5px;
+      border: 1px solid var(--gray-3);
+      background: var(--black-3);
+      color: var(--gray-1);
+    }
+    .seq-actor.gold-actor {
+      border-color: var(--gold-line);
+      background: var(--gold-dim);
+      color: var(--gold-light);
+    }
+    .seq-step { display: flex; align-items: center; margin-bottom: 10px; }
+    .seq-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gray-3));
+      position: relative; opacity: 0.6;
+    }
+    .seq-line::after {
+      content: '▶';
+      position: absolute; right: -7px; top: 50%; transform: translateY(-50%);
+      font-size: 7px; color: var(--gold-dark);
+    }
+    .seq-line.ret { background: linear-gradient(90deg, var(--gray-3), var(--gold-dark)); opacity: 0.35; }
+    .seq-line.ret::after { content: '◀'; left: -7px; right: auto; }
+    .seq-lbl {
+      font-size: 9.5px; font-family: var(--font-m);
+      background: var(--black-3);
+      border: 1px solid var(--gray-3);
+      color: var(--white-3);
+      padding: 3px 8px; border-radius: 3px;
+      white-space: nowrap; margin: 0 10px;
+    }
+    .seq-lbl.ret { color: var(--gray-1); }
+
+    /* ════════════════════════════════════════════════════════════════════
+       PAYMENT STAGES
+    ════════════════════════════════════════════════════════════════════ */
+    .pay-card {
+      background: var(--black-2);
+      border: 1px solid var(--gray-3);
+      border-radius: 8px;
+      padding: 20px;
+      position: relative; overflow: hidden;
+      transition: all 0.2s;
+    }
+    .pay-card:hover {
+      border-color: var(--gold-line);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card);
+    }
+    .pay-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, var(--gold-dark), transparent);
+    }
+    .pay-num {
+      font-family: var(--font-m); font-size: 8.5px; font-weight: 700;
+      letter-spacing: 0.14em; color: var(--gray-2); margin-bottom: 7px;
+    }
+    .pay-title {
+      font-family: var(--font-h); font-size: 13.5px; font-weight: 700;
+      color: var(--white); margin-bottom: 9px;
+    }
+    .pay-body { font-size: 12px; color: var(--gray-1); line-height: 1.65; }
+    .pay-tag {
+      display: block; margin-top: 12px;
+      padding: 7px 10px;
+      background: var(--black-3);
+      border: 1px solid var(--gray-3);
+      border-radius: 4px;
+      font-family: var(--font-m); font-size: 9.5px; color: var(--gray-2);
+    }
+    .pay-tag.gold-tag { color: var(--gold); border-color: var(--gold-line); background: var(--gold-dim); }
+
+    /* HMAC Shield */
+    .shield-box {
+      margin-top: 16px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.07), var(--black-3));
+      border: 1px solid var(--gold-line);
+      border-radius: 6px;
+      padding: 14px 18px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .shield-icon { font-size: 26px; flex-shrink: 0; }
+    .shield-title {
+      font-family: var(--font-h); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 4px;
+    }
+    .shield-body { font-size: 11px; color: var(--gray-1); line-height: 1.5; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       ENFORCEMENT / BAN RULES
+    ════════════════════════════════════════════════════════════════════ */
+    .ban-rule {
+      display: flex; align-items: flex-start; gap: 11px;
+      padding: 10px 13px;
+      background: var(--black-3);
+      border: 1px solid var(--gray-3);
+      border-radius: 5px;
+      margin-bottom: 8px;
+      font-size: 12px; color: var(--gray-1); line-height: 1.55;
+      transition: border-color 0.15s;
+    }
+    .ban-rule:hover { border-color: var(--gold-line); }
+    .ban-rule-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+    .ban-rule strong { color: var(--white); font-family: var(--font-m); font-size: 10.5px; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       LIFECYCLE BAR
+    ════════════════════════════════════════════════════════════════════ */
+    .lifecycle-bar {
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; flex-wrap: wrap;
+      margin-top: 20px; padding: 14px 22px;
+      background: var(--black-3);
+      border: 1px solid var(--gray-3);
+      border-radius: 6px;
+    }
+    .lc-pill {
+      padding: 5px 16px; border-radius: 4px;
+      font-family: var(--font-h); font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .lc-pill.p-active { background: rgba(249,246,240,0.07); border: 1px solid var(--gray-3); color: var(--white-2); }
+    .lc-pill.p-warn   { background: var(--gold-dim); border: 1px solid var(--gold-line); color: var(--gold); }
+    .lc-pill.p-ban    { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: var(--gray-1); }
+    .lc-arrow         { color: var(--gold-dark); font-size: 16px; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       CONTROL BAR
+    ════════════════════════════════════════════════════════════════════ */
+    .ctrl-bar {
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 48px;
+      background: rgba(8,8,8,0.95);
+      border-top: 1px solid var(--gray-line);
+      backdrop-filter: blur(20px);
+    }
+    .ctrl-info {
+      font-size: 11px; color: var(--gray-2); font-weight: 400;
+      letter-spacing: 0.03em;
+    }
+    .ctrl-info strong { color: var(--white); font-weight: 700; font-family: var(--font-m); }
+    .ctrl-info .pipe { color: var(--gray-3); margin: 0 8px; }
+    .ctrl-info .slide-name { color: var(--gray-1); }
+    .kb-hint {
+      font-size: 10px; color: var(--gray-2);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .kb-key {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 17px;
+      background: var(--black-4);
+      border: 1px solid var(--gray-3);
+      border-radius: 3px;
+      font-size: 9px; color: var(--gray-2);
+    }
+    .ctrl-btns { display: flex; gap: 10px; }
+    .btn-prev {
+      padding: 9px 22px; border-radius: 5px;
+      font-size: 11.5px; font-weight: 600;
+      cursor: pointer;
+      background: var(--black-4);
+      border: 1px solid var(--gray-3);
+      color: var(--gray-1);
+      transition: all 0.15s;
+      letter-spacing: 0.04em;
+    }
+    .btn-prev:hover:not(:disabled) { border-color: var(--gray-1); color: var(--white); }
+    .btn-prev:disabled { opacity: 0.3; cursor: not-allowed; }
+    .btn-next {
+      padding: 9px 26px; border-radius: 5px;
+      font-size: 11.5px; font-weight: 700;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-dark));
+      background-size: 200%;
+      border: none;
+      color: var(--black);
+      transition: all 0.2s;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: 0 0 16px rgba(201,168,76,0.2);
+    }
+    .btn-next:hover:not(:disabled) {
+      background-position: right;
+      box-shadow: 0 0 28px rgba(201,168,76,0.35);
+      transform: translateY(-1px);
+    }
+    .btn-next:disabled { opacity: 0.3; cursor: not-allowed; box-shadow: none; transform: none; }
+
+    /* ════════════════════════════════════════════════════════════════════
+       UTILITY
+    ════════════════════════════════════════════════════════════════════ */
+    .text-gold   { color: var(--gold); }
+    .text-gold-l { color: var(--gold-light); }
+    .text-white  { color: var(--white); }
+    .text-gray   { color: var(--gray-1); }
+    .text-muted  { color: var(--gray-2); }
+    .mono        { font-family: var(--font-m); }
+    .fw-700      { font-weight: 700; }
+
+    .section-eyebrow {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gray-2);
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 12px;
+    }
+    .section-eyebrow::after {
+      content: ''; flex: 1;
+      height: 1px; background: var(--gray-3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ TOP HEADER ═══════════════════════════════════════════════════════ -->
+  <header class="top-header">
+    <div class="header-brand">
+      <img src="/static/Assets/LOGO.png" alt="DivorceConnect India" class="header-logo" onerror="this.style.display='none'" />
+      <div class="header-divider"></div>
+      <span class="header-title">Divorce<span>Connect</span> India</span>
+      <div class="header-divider"></div>
+      <span class="header-subtitle">MVP Architecture Deck</span>
+    </div>
+    <div class="header-meta">
+      <span class="h-tag">FastAPI · PostgreSQL · Razorpay</span>
+      <span class="h-tag gold-tag">2026 · Investor Edition</span>
+      <span class="h-tag live-tag">Live Codebase</span>
+    </div>
+  </header>
+
+  <!-- ══ SHELL ════════════════════════════════════════════════════════════ -->
+  <div class="shell">
+
+    <!-- ══ SIDEBAR ═══════════════════════════════════════════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-label">Architecture Slides</div>
+
+        <button class="nav-btn active" id="nav-1"  onclick="goToSlide(1)">  <span class="nav-num">01</span><span class="nav-text">Infrastructure Engine</span></button>
+        <button class="nav-btn"        id="nav-2"  onclick="goToSlide(2)">  <span class="nav-num">02</span><span class="nav-text">Identity Access Gates</span></button>
+        <button class="nav-btn"        id="nav-3"  onclick="goToSlide(3)">  <span class="nav-num">03</span><span class="nav-text">Marketplace Profiles</span></button>
+        <button class="nav-btn"        id="nav-4"  onclick="goToSlide(4)">  <span class="nav-num">04</span><span class="nav-text">Lawyer Verification Wall</span></button>
+        <button class="nav-btn"        id="nav-5"  onclick="goToSlide(5)">  <span class="nav-num">05</span><span class="nav-text">Case Lifecycle Setup</span></button>
+        <button class="nav-btn"        id="nav-6"  onclick="goToSlide(6)">  <span class="nav-num">06</span><span class="nav-text">7-Milestone Pipeline</span></button>
+        <button class="nav-btn"        id="nav-7"  onclick="goToSlide(7)">  <span class="nav-num">07</span><span class="nav-text">Cloudinary Doc Engine</span></button>
+        <button class="nav-btn"        id="nav-8"  onclick="goToSlide(8)">  <span class="nav-num">08</span><span class="nav-text">Aggregate Validation Gate</span></button>
+        <button class="nav-btn"        id="nav-9"  onclick="goToSlide(9)">  <span class="nav-num">09</span><span class="nav-text">Dual-Channel Alerts</span></button>
+        <button class="nav-btn"        id="nav-10" onclick="goToSlide(10)"> <span class="nav-num">10</span><span class="nav-text">Case Chat Architecture</span></button>
+        <button class="nav-btn"        id="nav-11" onclick="goToSlide(11)"> <span class="nav-num">11</span><span class="nav-text">Razorpay Payments Engine</span></button>
+        <button class="nav-btn"        id="nav-12" onclick="goToSlide(12)"> <span class="nav-num">12</span><span class="nav-text">Automated Enforcement</span></button>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="prog-label">Progress — Slide <span id="prog-label-num" style="color:var(--gold)">1</span> of 12</div>
+        <div class="prog-track">
+          <div class="prog-fill" id="prog-fill" style="width:8.33%"></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ══ STAGE ═════════════════════════════════════════════════════════ -->
+    <main class="stage">
+      <div class="slide-viewport">
+
+        <!-- ══════════════════════════════════════════════════════════════
+             SLIDE 1 — Infrastructure Engine
+        ══════════════════════════════════════════════════════════════════ -->
+        <section class="slide active" id="slide-1">
+          <div class="slide-tag">Slide 01 · Core Engine</div>
+          <h2 class="slide-h">From Legacy Monolith to<br/><em>Async, Event-Driven</em> Legal Infrastructure</h2>
+          <p class="slide-sub">Built for complexity, engineered for scale — a fully decoupled four-pillar stack powering India's premier divorce legal marketplace in production.</p>
+
+          <div class="g4">
+            <div class="card card-gold">
+              <span class="card-icon">🚀</span>
+              <div class="card-chip">Async Engine</div>
+              <div class="card-title gold">FastAPI</div>
+              <div class="card-body">Native async/await at every endpoint — <span class="mono" style="font-size:10.5px; color:var(--white-3)">@app.get</span>, <span class="mono" style="font-size:10.5px; color:var(--white-3)">@app.post</span>, <span class="mono" style="font-size:10.5px; color:var(--white-3)">@app.websocket</span>. Non-blocking I/O handling thousands of concurrent legal sessions.</div>
+            </div>
+            <div class="card">
+              <span class="card-icon">🗄️</span>
+              <div class="card-chip white">Data Layer</div>
+              <div class="card-title">PostgreSQL</div>
+              <div class="card-body">Async SQLAlchemy with <span class="mono" style="font-size:10.5px; color:var(--white-3)">DeclarativeBase</span> for transactional safety. Alembic manages every schema migration without touching live data.</div>
+            </div>
+            <div class="card">
+              <span class="card-icon">⚡</span>
+              <div class="card-chip dark">Event Layer</div>
+              <div class="card-title">NATS / Taskiq</div>
+              <div class="card-body">Fully decoupled message broker. Background workers registered with <span class="mono" style="font-size:10.5px; color:var(--white-3)">@broker.task</span>. A failed email job never blocks a case from advancing.</div>
+            </div>
+            <div class="card">
+              <span class="card-icon">🎨</span>
+              <div class="card-chip dark">Render Layer</div>
+              <div class="card-title">Jinja2</div>
+              <div class="card-body">Server-side templating with custom Django-to-Jinja syntax translation. All backend HTML rendering, filters, and email templates run through this layer.</div>
+            </div>
+          </div>
+
+          <div class="flow-row">
+            <span class="flow-step">Client Request</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step">FastAPI Router</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step accent">Async DB Query (PostgreSQL)</span>
+            <span class="flow-arrow"> / </span>
+            <span class="flow-step accent">Taskiq Background Job</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step">WebSocket / HTTP Response</span>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             SLIDE 2 — Identity Access Gates
+        ══════════════════════════════════════════════════════════════════ -->
+        <section class="slide" id="slide-2">
+          <div class="slide-tag">Slide 02 · Authentication</div>
+          <h2 class="slide-h">One Identity Gateway.<br/><em>Four Roles.</em> Zero Ambiguity.</h2>
+          <p class="slide-sub">JWT-Secured, role-stratified access architecture built on HS256 algorithms and OAuth2PasswordBearer dependency injection — every protected endpoint gate-checked at the framework level.</p>
+
+          <div class="g4">
+            <div class="card">
+              <div class="role-badge">👤 Client</div>
+              <ul class="role-list">
+                <li>Case Creation</li>
+                <li>Document Upload</li>
+                <li>Razorpay Payment</li>
+                <li>Real-time Tracking</li>
+              </ul>
+            </div>
+            <div class="card card-gold">
+              <div class="role-badge gold-badge">⚖️ Lawyer</div>
+              <ul class="role-list">
+                <li>Case Workspace Ops</li>
+                <li>Advance Pipeline Stages</li>
+                <li>Secure Client Chat</li>
+                <li>Profile Validation View</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="role-badge">🛡️ Staff</div>
+              <ul class="role-list">
+                <li>Document Review Queue</li>
+                <li>Flag Malicious Reports</li>
+                <li>Warning Assertions</li>
+                <li>Restricted Mutations</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="role-badge">👑 Superadmin</div>
+              <ul class="role-list">
+                <li>Global Platform Override</li>
+                <li>Schema Management</li>
+                <li>Unrestricted Mutations</li>
+                <li>Full Audit Log Access</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="jwt-strip">
+            <div class="jwt-step"><span class="jwt-pill">Login Form</span><span class="jwt-arrow"> → </span></div>
+            <div class="jwt-step"><span class="jwt-pill">POST /api/auth/token</span><span class="jwt-arrow"> → </span></div>
+            <div class="jwt-step"><span class="jwt-pill">create_access_token()</span><span class="jwt-arrow"> → </span></div>
+            <div class="jwt-step"><span class="jwt-pill">LocalStorage</span><span class="jwt-arrow"> → </span></div>
+            <div class="jwt-step"><span class="jwt-pill">Authorization Header</span><span class="jwt-arrow"> → </span></div>
+            <div class="jwt-step"><span class="jwt-pill">get_current_user()</span><span class="jwt-arrow"> → </span></div>
+            <div class="jwt-step"><span class="jwt-pill" style="border-color:var(--gold-line); color:var(--gold-light);">Role-Gated Router</span></div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             SLIDE 3 — Marketplace Profiles
+        ══════════════════════════════════════════════════════════════════ -->
+        <section class="slide" id="slide-3">
+          <div class="slide-tag">Slide 03 · Data Models</div>
+          <h2 class="slide-h">Two Profiles. One Platform.<br/><em>A Legal Marketplace Architecture.</em></h2>
+          <p class="slide-sub">ClientProfile &amp; LawyerProfile extend a single shared <span class="mono text-gold" style="font-size:12px;">accounts_baseuser</span> table — enabling unified platform analytics while retaining domain-specific schema fields per role.</p>
+
+          <div class="g3">
+            <div class="card card-gold">
+              <div class="section-eyebrow">Shared Parent</div>
+              <div class="card-title gold">🏛️ accounts_baseuser</div>
+              <div class="card-body" style="margin-bottom:12px; font-size:11.5px;">Single identity record for every user regardless of role. The source of truth for all authentication.</div>
+              <div class="subtle-rule"></div>
+              <div class="db-field"><span class="db-key">id</span><span class="db-type">PK · Integer</span></div>
+              <div class="db-field"><span class="db-key">email</span><span class="db-type">String · Unique</span></div>
+              <div class="db-field"><span class="db-key">password_hash</span><span class="db-type">String</span></div>
+              <div class="db-field"><span class="db-key">role</span><span class="db-type">ENUM (4 types)</span></div>
+              <div class="db-field"><span class="db-key">is_active</span><span class="db-type">Boolean</span></div>
+              <div class="db-field"><span class="db-key">is_staff</span><span class="db-type">Boolean</span></div>
+            </div>
+
+            <div class="card">
+              <div class="section-eyebrow">Client Domain</div>
+              <div class="card-title">👤 clients_clientprofile</div>
+              <div class="card-body" style="margin-bottom:12px; font-size:11.5px;">Extends baseuser with client-specific attributes for case and profile management.</div>
+              <div class="subtle-rule"></div>
+              <div class="db-field"><span class="db-key">user_id</span><span class="db-type">FK → baseuser</span></div>
+              <div class="db-field"><span class="db-key">marital_status</span><span class="db-type">String</span></div>
+              <div class="db-field"><span class="db-key">gender</span><span class="db-type">String</span></div>
+              <div class="db-field"><span class="db-key">mobile_number</span><span class="db-type">String</span></div>
+              <div class="db-field"><span class="db-key">custom_id</span><span class="db-type">String</span><span class="db-note">ci:12345</span></div>
+              <div class="db-field"><span class="db-key">warnings_count</span><span class="db-type">Integer</span></div>
+            </div>
+
+            <div class="card">
+              <div class="section-eyebrow">Lawyer Domain</div>
+              <div class="card-title">⚖️ lawyers_lawyerprofile</div>
+              <div class="card-body" style="margin-bottom:12px; font-size:11.5px;">Extends baseuser with lawyer-domain credentials and marketplace-specific fields.</div>
+              <div class="subtle-rule"></div>
+              <div class="db-field"><span class="db-key">user_id</span><span class="db-type">FK → baseuser</span></div>
+              <div class="db-field"><span class="db-key">bar_reg_number</span><span class="db-type">String · Unique</span></div>
+              <div class="db-field"><span class="db-key">specialization</span><span class="db-type">String</span></div>
+              <div class="db-field"><span class="db-key">consultation_fee</span><span class="db-type">Numeric</span></div>
+              <div class="db-field"><span class="db-key">rating</span><span class="db-type">Float · Aggregated</span></div>
+              <div class="db-field"><span class="db-key">is_deleted</span><span class="db-type">Boolean</span><span class="db-note">soft-delete</span></div>
+            </div>
+          </div>
+
+          <div class="flow-row">
+            <span class="flow-step">User Registration</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step">JWT Issued</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step">Profile Completion UI</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step accent">ClientProfile / LawyerProfile Record Instantiated in PostgreSQL</span>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             SLIDE 4 — Lawyer Verification Wall
+        ══════════════════════════════════════════════════════════════════ -->
+        <section class="slide" id="slide-4">
+          <div class="slide-tag">Slide 04 · Verification Gate</div>
+          <h2 class="slide-h">The Verification Wall:<br/><em>How Rogue Lawyers Never Reach Clients</em></h2>
+          <p class="slide-sub">A staffed, multi-stage administrative gate that controls marketplace discovery. No lawyer appears in client search results without clearing all three verification barriers — this is an operational moat.</p>
+
+          <div class="g3">
+            <div class="card">
+              <div class="status-label sl-pending">Step 1 — Submitted</div>
+              <div class="card-title">📋 Profile Submission</div>
+              <div class="card-body" style="margin-bottom:12px;">Lawyer completes onboarding: bar registration number, specialization, consultation fee, and profile photo submitted to the system.</div>
+              <div class="subtle-rule"></div>
+              <div class="db-field"><span class="db-key">status</span><span class="db-note">PENDING</span></div>
+              <div class="db-field"><span class="db-key">model</span><span class="db-type">LawyerVerificationRequest</span></div>
+            </div>
+
+            <div class="card card-gold">
+              <div class="status-label sl-review">Step 2 — Under Review</div>
+              <div class="card-title gold">🔍 Admin Review Queue</div>
+              <div class="card-body" style="margin-bottom:12px;">AdminPanelProfile staff accesses the isolated verification queue. Every mutation is gated by <span class="mono" style="color:var(--white-2); font-size:10.5px;">is_staff == True</span> dependency injection at the router level.</div>
+              <div class="subtle-rule"></div>
+              <div class="db-field"><span class="db-key">gate check</span><span class="db-type">is_staff == True</span></div>
+              <div class="db-field"><span class="db-key">model</span><span class="db-type">AdminPanelProfile</span></div>
+            </div>
+
+            <div class="card">
+              <div class="status-label sl-approved">Step 3 — Adjudicated</div>
+              <div class="card-title">✅ / ✗ Decision</div>
+              <div class="card-body" style="margin-bottom:10px;"><strong class="text-gold">APPROVED</strong> — Profile goes live. Lawyer enters the searchable directory immediately.<br/><br/><strong style="color:var(--gray-1);">REJECTED</strong> — Lawyer notified with rejection reason. Resubmission enabled via <span class="mono" style="color:var(--white-3); font-size:10.5px;">LawyerProfileUpdateRequest</span>.</div>
+            </div>
+          </div>
+
+          <div class="flow-row">
+            <span class="flow-step">Lawyer Submits</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step accent">PENDING in DB</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step">Admin Reviews</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step accent">APPROVED → Profile Live &amp; Searchable</span>
+            <span class="flow-arrow"> / </span>
+            <span class="flow-step">REJECTED → Re-submission</span>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             SLIDE 5 — Case Lifecycle Setup
+        ══════════════════════════════════════════════════════════════════ -->
+        <section class="slide" id="slide-5">
+          <div class="slide-tag">Slide 05 · Case Flow — Part I</div>
+          <h2 class="slide-h">The Case Lifecycle:<br/><em>Initiation to Assignment</em> in Four Steps</h2>
+          <p class="slide-sub">A deterministic state machine — every case traverses four validated checkpoints before a live lawyer workspace is activated. No checkpoint can be bypassed programmatically.</p>
+
+          <div class="timeline">
+            <div class="tl-item" data-num="1">
+              <div class="tl-title">Initiation</div>
+              <div class="tl-status">CASE_CREATED</div>
+              <div class="tl-desc">Client selects a verified lawyer from the marketplace directory. <span class="mono text-gold" style="font-size:10.5px;">POST /api/client/cases</span> fires — a <span class="mono" style="color:var(--white-3); font-size:10.5px;">CaseRequest</span> record is created with a generated <span class="mono text-gold" style="font-size:10.5px;">custom_id</span> (e.g. <strong>ci:12345</strong>) linking <span class="mono" style="color:var(--white-3); font-size:10.5px;">client_id</span> and <span class="mono" style="color:var(--white-3); font-size:10.5px;">lawyer_id</span>.</div>
+            </div>
+            <div class="tl-item" data-num="2">
+              <div class="tl-title">Document Upload</div>
+              <div class="tl-status">DOCUMENT_VERIFICATION</div>
+              <div class="tl-desc">Client uploads required legal documents. Each upload creates a <span class="mono" style="color:var(--white-3); font-size:10.5px;">CaseDocument</span> row in PostgreSQL and a corresponding <span class="mono" style="color:var(--white-3); font-size:10.5px;">CaseDocumentVerification</span> record with status <span class="mono text-gold" style="font-size:10.5px;">PENDING</span>, automatically feeding the admin review queue.</div>
+            </div>
+            <div class="tl-item" data-num="3">
+              <div class="tl-title">Admin Verification Gate</div>
+              <div class="tl-status">DOCUMENTS_VERIFIED</div>
+              <div class="tl-desc">Admin reviews and approves each document individually. An aggregate check fires after every approval — when <em>all</em> documents reach <span class="mono text-gold" style="font-size:10.5px;">VERIFIED</span>, the <span class="mono" style="color:var(--white-3); font-size:10.5px;">CaseRequest</span> auto-flips to <span class="mono text-gold" style="font-size:10.5px;">DOCUMENTS_VERIFIED</span>. No manual trigger needed.</div>
+            </div>
+            <div class="tl-item" data-num="4" style="border-color:rgba(201,168,76,0.25);">
+              <div class="tl-title" style="color:var(--gold-light);">Lawyer Assignment</div>
+              <div class="tl-status" style="background:rgba(201,168,76,0.12); border-color:rgba(201,168,76,0.3); color:var(--gold-light);">LAWYER_ASSIGNED</div>
+              <div class="tl-desc">The <span class="mono text-gold" style="font-size:10.5px;">client_id ↔ lawyer_id</span> relationship is confirmed. Live case workspace activated, case chat opened, both parties receive a WebSocket notification instantaneously.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             SLIDE 6 — 7-Milestone Pipeline
+        ══════════════════════════════════════════════════════════════════ -->
+        <section class="slide" id="slide-6">
+          <div class="slide-tag">Slide 06 · Case Flow — Part II</div>
+          <h2 class="slide-h">The Execution Engine:<br/><em>Seven Legal Milestones,</em> One Deterministic Pipeline</h2>
+          <p class="slide-sub">Lawyer-controlled progression via <span class="mono text-gold" style="font-size:12px;">PUT /cases/{id}/stage</span> — every stage advance triggers a four-event system cascade automatically. No manual backend intervention ever required.</p>
+
+          <div class="milestone-grid">
+            <div class="m-card"><div class="m-num">M1</div><div class="m-label">Petition Drafted</div><div class="m-sub">Document prepared &amp; uploaded</div></div>
+            <div class="m-card"><div class="m-num">M2</div><div class="m-label">Petition Filed</div><div class="m-sub">Court submission, date-stamped</div></div>
+            <div class="m-card"><div class="m-num">M3</div><div class="m-label">First Motion</div><div class="m-sub">First hearing, date recorded</div></div>
+            <div class="m-card"><div class="m-num">M4</div><div class="m-label">Second Motion</div><div class="m-sub">Second hearing, mediation tracked</div></div>
+            <div class="m-card"><div class="m-num">M5</div><div class="m-label">Decree Issued</div><div class="m-sub">Court dissolution decree</div></div>
+            <div class="m-card done"><div class="m-num">M6</div><div class="m-label">Completed</div><div class="m-sub">Case closed, client notified</div></div>
+            <div class="m-card done"><div class="m-num">M7</div><div class="m-label">Rated</div><div class="m-sub">Lawyer rating prompt fires</div></div>
+          </div>
+
+          <div class="cascade-box">
+            <div class="cascade-header">⚡ System Cascade — Fires Automatically on Every Stage Advance</div>
+            <div class="cascade-grid">
+              <div class="cascade-item"><strong>① DB Mutation</strong>Status column updated, timestamp logged permanently</div>
+              <div class="cascade-item"><strong>② Audit Trail</strong>Immutable state record created — no rollback possible</div>
+              <div class="cascade-item"><strong>③ WebSocket Broadcast</strong>Client UI re-renders progress bar in real-time</div>
+              <div class="cascade-item"><strong>④ Email Dispatch</strong>Taskiq worker sends notification HTML email via NATS</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             SLIDE 7 — Document Engine: Upload
+        ══════════════════════════════════════════════════════════════════ -->
+        <section class="slide" id="slide-7">
+          <div class="slide-tag">Slide 07 · Storage Engine</div>
+          <h2 class="slide-h">The Document Engine:<br/><em>Secure Upload, Persistent Storage,</em> Instant Retrieval</h2>
+          <p class="slide-sub">Cloudinary-backed pipeline — the application server never stores a single byte of document data. Files pipe directly from the client browser to Cloudinary's CDN infrastructure. Zero on-premise document storage liability.</p>
+
+          <div class="g3">
+            <div class="card">
+              <span class="card-icon">📤</span>
+              <div class="card-chip dark">Upload Layer</div>
+              <div class="card-title">Client-Side Trigger</div>
+              <div class="card-body" style="margin-bottom:12px;">Client selects documents from the case workspace UI and submits.</div>
+              <div class="subtle-rule"></div>
+              <ul class="role-list">
+                <li>Aadhaar Card</li>
+                <li>Marriage Certificate</li>
+                <li>Court Notices</li>
+                <li>Property Documents</li>
+              </ul>
+              <div style="margin-top:12px; padding:7px 10px; background:var(--black-4); border:1px solid var(--gray-3); border-radius:4px; font-family:var(--font-m); font-size:9.5px; color:var(--gray-1);">POST /api/docs/upload</div>
+            </div>
+
+            <div class="card card-gold">
+              <span class="card-icon">☁️</span>
+              <div class="card-chip">Storage Layer</div>
+              <div class="card-title gold">Cloudinary CDN</div>
+              <div class="card-body" style="margin-bottom:12px;"><span class="mono" style="color:var(--white-2); font-size:10.5px;">upload_to_cloudinary()</span> — binary stream piped server-side to Cloudinary API.</div>
+              <div class="subtle-rule"></div>
+              <div class="db-field"><span class="db-key">secure_url</span><span class="db-type">HTTPS · CDN distributed</span></div>
+              <div class="db-field"><span class="db-key">asset_id</span><span class="db-type">Unique identifier</span></div>
+              <div style="margin-top:10px; padding:7px 10px; background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.18); border-radius:4px; font-size:10.5px; color:var(--gold);">✓ Zero on-premise file storage</div>
+            </div>
+
+            <div class="card">
+              <span class="card-icon">📋</span>
+              <div class="card-chip dark">Metadata Layer</div>
+              <div class="card-title">DB Record Created</div>
+              <div class="card-body" style="margin-bottom:12px;">Auto-creates tracking records in <span class="mono" style="color:var(--white-3); font-size:10.5px;">lawyers_casedocument</span> table.</div>
+              <div class="subtle-rule"></div>
+              <div class="db-field"><span class="db-key">document_type</span><span class="db-type">String</span></div>
+              <div class="db-field"><span class="db-key">cloudinary_url</span><span class="db-type">Text</span></div>
+              <div class="db-field"><span class="db-key">uploaded_at</span><span class="db-type">Timestamp</span></div>
+              <div class="db-field"><span class="db-key">case_id</span><span class="db-type">FK → CaseRequest</span></div>
+              <div style="margin-top:10px; padding:7px 10px; background:var(--black-4); border:1px solid var(--gray-3); border-radius:4px; font-size:10.5px; color:var(--gold);">→ Verification Row: PENDING</div>
+            </div>
+          </div>
+
+          <div class="flow-row">
+            <span class="flow-step">Client Uploads File</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step">FastAPI Endpoint</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step accent">Cloudinary CDN (binary stream)</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step">Secure URL Returned</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step accent">lawyers_casedocument row created</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step">Verification: PENDING</span>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             SLIDE 8 — Aggregate Validation Gate
+        ══════════════════════════════════════════════════════════════════ -->
+        <section class="slide" id="slide-8">
+          <div class="slide-tag">Slide 08 · Aggregation Logic</div>
+          <h2 class="slide-h">The Verification Gate:<br/><em>The Last Line of Defence</em> Before a Case Goes Live</h2>
+          <p class="slide-sub">The aggregate state trigger is the most intelligent component in the platform. The case auto-promotes to <span class="mono text-gold" style="font-size:12px;">LAWYER_ASSIGNED</span> the moment all documents reach <span class="mono text-gold" style="font-size:12px;">VERIFIED</span> — no human trigger required.</p>
+
+          <div class="g2">
+            <div class="card">
+              <div class="section-eyebrow">Document State Matrix</div>
+              <div class="card-title">State Evaluation Logic</div>
+              <div class="card-body" style="margin-bottom:14px;">Every admin approval re-queries all case documents and evaluates the aggregate state.</div>
+              <table class="state-table">
+                <thead>
+                  <tr><th>Doc A</th><th>Doc B</th><th>Doc C</th><th>Case Outcome</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="t-pend">PENDING</td>
+                    <td class="t-vrfd">VERIFIED</td>
+                    <td class="t-pend">PENDING</td>
+                    <td class="t-blocked">⊘ BLOCKED</td>
+                  </tr>
+                  <tr>
+                    <td class="t-vrfd">VERIFIED</td>
+                    <td class="t-blocked">REJECTED</td>
+                    <td class="t-vrfd">VERIFIED</td>
+                    <td class="t-blocked">⊘ BLOCKED</td>
+                  </tr>
+                  <tr style="background:rgba(201,168,76,0.04);">
+                    <td class="t-vrfd">VERIFIED</td>
+                    <td class="t-vrfd">VERIFIED</td>
+                    <td class="t-vrfd">VERIFIED</td>
+                    <td class="t-adv">◈ AUTO-ADVANCE</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card card-gold">
+              <div class="section-eyebrow">Automated Trigger Pipeline</div>
+              <div class="card-title gold">Self-Executing State Promotion</div>
+              <div class="card-body" style="margin-bottom:14px;">The aggregate check is a backend query — not a checklist item. It fires after every single admin action without exception.</div>
+              <div class="ban-rule"><span class="ban-rule-icon">①</span><div><strong>Admin clicks APPROVE</strong> — Document status → VERIFIED in PostgreSQL</div></div>
+              <div class="ban-rule"><span class="ban-rule-icon">②</span><div><strong>System queries all docs</strong> for this <span class="mono" style="font-size:10px;">case_id</span> — aggregate check runs</div></div>
+              <div class="ban-rule"><span class="ban-rule-icon">③</span><div><strong>All VERIFIED?</strong> CaseRequest.status → DOCUMENTS_VERIFIED</div></div>
+              <div class="ban-rule" style="border-color:var(--gold-line);"><span class="ban-rule-icon">④</span><div><strong>Stage auto-advances</strong> → LAWYER_ASSIGNED · WebSocket fires to both parties</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             SLIDE 9 — Dual-Channel Alerts
+        ══════════════════════════════════════════════════════════════════ -->
+        <section class="slide" id="slide-9">
+          <div class="slide-tag">Slide 09 · Real-Time Network</div>
+          <h2 class="slide-h">Always-On:<br/><em>The Dual-Channel</em> Notification Infrastructure</h2>
+          <p class="slide-sub">Every critical platform event fires two simultaneous notification channels — WebSocket for in-session users, NATS/Taskiq for out-of-session delivery. Not a single legal event goes unnotified.</p>
+
+          <div class="g2">
+            <div class="card card-gold">
+              <div class="section-eyebrow">In-Session · &lt;50ms delivery</div>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+                <span style="font-size:20px;">⚡</span>
+                <div class="card-title gold" style="margin-bottom:0;">Real-Time WebSocket Layer</div>
+              </div>
+              <div class="db-field"><span class="db-key">Endpoint</span><span class="db-type">/ws/notifications/{user_id}</span></div>
+              <div class="db-field"><span class="db-key">Auth</span><span class="db-type">?token=JWT in WS handshake</span></div>
+              <div class="db-field"><span class="db-key">Manager</span><span class="db-type">ConnectionManager (in-memory map)</span></div>
+              <div class="db-field"><span class="db-key">Method</span><span class="db-type">send_personal_message(user_id)</span></div>
+              <div class="subtle-rule"></div>
+              <div class="section-eyebrow" style="margin-bottom:8px;">Triggers</div>
+              <ul class="role-list">
+                <li>Case stage advanced</li>
+                <li>Chat message received</li>
+                <li>Payment confirmed</li>
+                <li>Document verified</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="section-eyebrow">Out-of-Session · Persistent · Auto-retry</div>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+                <span style="font-size:20px;">📬</span>
+                <div class="card-title" style="margin-bottom:0;">Async Background Layer (NATS)</div>
+              </div>
+              <div class="db-field"><span class="db-key">Broker</span><span class="db-type">NATS via Taskiq</span></div>
+              <div class="db-field"><span class="db-key">Task decorator</span><span class="db-type">@broker.task</span></div>
+              <div class="db-field"><span class="db-key">Task name</span><span class="db-type">send_email_task</span></div>
+              <div class="db-field"><span class="db-key">Delivery</span><span class="db-type">Jinja2 HTML email templates</span></div>
+              <div class="subtle-rule"></div>
+              <div class="section-eyebrow" style="margin-bottom:8px;">Triggers</div>
+              <ul class="role-list">
+                <li>Account warning issued</li>
+                <li>Payment receipt dispatch</li>
+                <li>Document verified summary</li>
+                <li>Case stage email notification</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="flow-row">
+            <span class="flow-step">System Event Fires</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step accent">WebSocket push (if online)</span>
+            <span class="flow-arrow"> + </span>
+            <span class="flow-step accent">NATS email task (always)</span>
+            <span class="flow-arrow"> → </span>
+            <span class="flow-step">User notified regardless of session state</span>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             SLIDE 10 — Case Chat Architecture
+        ══════════════════════════════════════════════════════════════════ -->
+        <section class="slide" id="slide-10">
+          <div class="slide-tag">Slide 10 · Chat Messaging</div>
+          <h2 class="slide-h">Case Chat: Persistent, Real-Time,<br/><em>Attachment-Capable</em> Legal Messaging</h2>
+          <p class="slide-sub">Every message is committed to PostgreSQL <em>before</em> the WebSocket broadcast fires. The full conversation is a permanent, tamper-proof legal audit trail — even if real-time delivery fails, the record exists.</p>
+
+          <div class="g12" style="margin-bottom:16px;">
+            <div class="card">
+              <div class="section-eyebrow">Data Model</div>
+              <div class="card-title">lawyers_casemessage</div>
+              <div class="card-body" style="margin-bottom:12px; font-size:11.5px;">One record per message — every conversation is fully reconstructable from this table.</div>
+              <div class="subtle-rule"></div>
+              <div class="db-field"><span class="db-key">case_id</span><span class="db-type">FK → CaseRequest</span></div>
+              <div class="db-field"><span class="db-key">sender_type</span><span class="db-type">'client' / 'lawyer'</span></div>
+              <div class="db-field"><span class="db-key">text</span><span class="db-type">String (nullable)</span></div>
+              <div class="db-field"><span class="db-key">attachment</span><span class="db-type">Cloudinary URL (nullable)</span></div>
+            </div>
+
+            <div class="card card-gold">
+              <div class="section-eyebrow">Dispatch Sequence — DB First, WS Second</div>
+              <div class="card-title gold">Message Dispatch Pipeline</div>
+              <div class="card-body" style="margin-bottom:14px;">DB write is guaranteed. WebSocket is best-effort. Architecture prioritizes persistence over real-time delivery.</div>
+              <div class="ban-rule"><span class="ban-rule-icon">①</span><div><strong>POST /cases/{case_id}/messages</strong> — Router receives payload</div></div>
+              <div class="ban-rule"><span class="ban-rule-icon">②</span><div><strong>DB INSERT committed</strong> — Message permanently stored in PostgreSQL</div></div>
+              <div class="ban-rule"><span class="ban-rule-icon">③</span><div><strong>manager.send_personal_message()</strong> — WebSocket broadcast fires</div></div>
+              <div class="ban-rule" style="border-color:var(--gold-line);"><span class="ban-rule-icon">④</span><div><strong>Recipient UI updates</strong> — Real-time render, no page reload required</div></div>
+            </div>
+          </div>
+
+          <div class="seq-wrap">
+            <div class="seq-actors">
+              <div class="seq-actor gold-actor">Lawyer</div>
+              <div class="seq-actor">FastAPI Router</div>
+              <div class="seq-actor">PostgreSQL</div>
+              <div class="seq-actor">WS Manager</div>
+              <div class="seq-actor gold-actor">Client UI</div>
+            </div>
+            <div class="seq-step"><div style="width:10%"></div><div class="seq-line" style="width:30%"></div><div class="seq-lbl">POST /messages {text, case_id}</div><div style="flex:1"></div></div>
+            <div class="seq-step"><div style="width:30%"></div><div class="seq-line" style="width:20%"></div><div class="seq-lbl">INSERT lawyers_casemessage</div><div style="flex:1"></div></div>
+            <div class="seq-step"><div style="width:30%"></div><div class="seq-line ret" style="width:20%"></div><div class="seq-lbl ret">message_id returned</div><div style="flex:1"></div></div>
+            <div class="seq-step"><div style="width:30%"></div><div class="seq-line" style="width:50%"></div><div class="seq-lbl">send_personal_message(client_id)</div></div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             SLIDE 11 — Razorpay Payments Engine
+        ══════════════════════════════════════════════════════════════════ -->
+        <section class="slide" id="slide-11">
+          <div class="slide-tag">Slide 11 · Ledger &amp; Payments</div>
+          <h2 class="slide-h">The Payments Engine:<br/><em>Razorpay-Verified, Signature-Protected,</em> Audit-Complete</h2>
+          <p class="slide-sub">Zero-trust financial architecture. Every payment success callback is cryptographically validated via HMAC-SHA256 before a single database record is mutated. Spoofed callbacks are silently rejected.</p>
+
+          <div class="g3" style="margin-bottom:16px;">
+            <div class="pay-card">
+              <div class="pay-num">STAGE 1 · ORDER INITIATION</div>
+              <div class="pay-title">Order Created</div>
+              <div class="pay-body">Client clicks "Pay Now." Platform immediately creates a <span class="mono" style="color:var(--white-3); font-size:10.5px;">Payment</span> DB row with status <span class="mono text-gold" style="font-size:10.5px;">PENDING</span> and invoice <span class="mono text-gold" style="font-size:10.5px;">inv:12345</span> — before the payment gateway even opens.</div>
+              <div class="pay-tag">POST /payments/create_payment</div>
+              <div class="pay-tag" style="margin-top:4px; color:var(--gold); border-color:var(--gold-line); background:var(--gold-dim);">→ invoice: inv:12345 · status: PENDING</div>
+            </div>
+
+            <div class="pay-card">
+              <div class="pay-num">STAGE 2 · CHECKOUT &amp; CAPTURE</div>
+              <div class="pay-title">Razorpay Checkout</div>
+              <div class="pay-body">PCI-compliant Razorpay modal launches. Client transacts via Card / UPI / Net Banking. Payment captured by Razorpay servers — <span class="mono" style="color:var(--white-3); font-size:10.5px;">razorpay_payment_id</span> returned in success callback.</div>
+              <div class="pay-tag">Returns: razorpay_payment_id + razorpay_order_id</div>
+            </div>
+
+            <div class="pay-card" style="border-color:var(--gold-line);">
+              <div class="pay-num">STAGE 3 · VERIFICATION &amp; DISPATCH</div>
+              <div class="pay-title">Zero-Trust Signature Gate</div>
+              <div class="pay-body">Backend computes <span class="mono" style="color:var(--white-3); font-size:10.5px;">HMAC-SHA256(order_id + payment_id, secret)</span> and validates against Razorpay's signature. If valid — DB → <span class="mono text-gold" style="font-size:10.5px;">SUCCEEDED</span>, WebSocket fires, NATS dispatches receipt.</div>
+              <div class="pay-tag gold-tag">POST /{payment_id}/verify → status: SUCCEEDED</div>
+            </div>
+          </div>
+
+          <div class="shield-box">
+            <div class="shield-icon">🔐</div>
+            <div>
+              <div class="shield-title">HMAC-SHA256 Signature Gate — Zero-Trust Financial Architecture</div>
+              <div class="shield-body">Client Pays → Razorpay Captures → <strong style="color:var(--gold);">Signature Verified</strong> → DB → SUCCEEDED → WebSocket Alert → NATS Receipt Email → <strong style="color:var(--gold);">inv:12345 delivered</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             SLIDE 12 — Automated Enforcement
+        ══════════════════════════════════════════════════════════════════ -->
+        <section class="slide" id="slide-12">
+          <div class="slide-tag">Slide 12 · Governance</div>
+          <h2 class="slide-h">Trust &amp; Safety at Scale:<br/><em>Automated Enforcement</em> &amp; Account Termination</h2>
+          <p class="slide-sub">A dual-track, self-policing enforcement system. Auto-ban logic is hardcoded into the backend — not in a runbook or someone's memory. The platform enforces trust programmatically at every violation event.</p>
+
+          <div class="g2" style="margin-bottom:14px;">
+            <div class="card">
+              <div class="section-eyebrow">Track A — Manual Reporting</div>
+              <div class="card-title">🚩 Abuse Reporting Flow</div>
+              <div class="card-body" style="margin-bottom:14px; font-size:11.5px;">A manual report triggers an automated penalty chain — no human has to "remember" to escalate.</div>
+              <div class="ban-rule"><span class="ban-rule-icon">①</span><div><strong>Client flags Lawyer</strong> — TrustReport row created (status: PENDING)</div></div>
+              <div class="ban-rule"><span class="ban-rule-icon">②</span><div><strong>Admin reviews</strong> TrustReport queue, triggers WARN action on profile</div></div>
+              <div class="ban-rule"><span class="ban-rule-icon">③</span><div><strong>warnings_count + 1</strong> incremented on target's profile record</div></div>
+              <div class="ban-rule" style="border-color:var(--gold-line);"><span class="ban-rule-icon">④</span><div><strong>Auto-ban check fires</strong> — if count ≥ 3, account termination executes immediately</div></div>
+            </div>
+
+            <div class="card card-gold">
+              <div class="section-eyebrow">Track B — Automated Enforcement Rules</div>
+              <div class="card-title gold">⚙️ Programmatic Penalty Engine</div>
+              <div class="card-body" style="margin-bottom:14px; font-size:11.5px;">All thresholds are hardcoded in backend logic — guaranteed execution at every violation event with no human intervention.</div>
+
+              <div class="ban-rule" style="border-color:rgba(255,255,255,0.1);">
+                <span class="ban-rule-icon">⊘</span>
+                <div>
+                  <strong>Lawyer Auto-Ban</strong><br/>
+                  <span class="mono" style="font-size:10px; color:var(--gray-2);">warnings_count ≥ 3</span>
+                  <span style="color:var(--gray-1);"> → is_deleted=True · is_active=False · All sessions invalidated</span>
+                </div>
+              </div>
+              <div class="ban-rule" style="margin-top:8px; border-color:rgba(255,255,255,0.1);">
+                <span class="ban-rule-icon">◎</span>
+                <div>
+                  <strong>Reporter Auto-Ban</strong><br/>
+                  <span class="mono" style="font-size:10px; color:var(--gray-2);">false_reports_count ≥ 6</span>
+                  <span style="color:var(--gray-1);"> → Reporter deactivated — prevents weaponized reporting</span>
+                </div>
+              </div>
+              <div class="ban-rule" style="margin-top:8px; border-color:var(--gold-line);">
+                <span class="ban-rule-icon">◻</span>
+                <div>
+                  <strong>Voluntary Deletion</strong><br/>
+                  <span class="mono text-gold" style="font-size:10px;">DeleteAccountToken</span>
+                  <span style="color:var(--gray-1);"> — time-limited self-termination URL, confirmed → account purged</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lifecycle-bar">
+            <span class="lc-pill p-active">✓ Active</span>
+            <span class="lc-arrow">──►</span>
+            <span class="lc-pill p-warn">⚠ Warned (1–2)</span>
+            <span class="lc-arrow">──►</span>
+            <span class="lc-pill p-warn" style="opacity:0.7;">⚠ Final Warning</span>
+            <span class="lc-arrow">──►</span>
+            <span class="lc-pill p-ban">⊘ Auto-Deactivated</span>
+            <span class="lc-arrow">──►</span>
+            <span style="font-size:9.5px; color:var(--gray-2); font-family:var(--font-m);">is_deleted=True · is_active=False · Sessions purged</span>
+          </div>
+        </section>
+
+      </div><!-- /slide-viewport -->
+
+      <!-- ══ CONTROL BAR ════════════════════════════════════════════════ -->
+      <div class="ctrl-bar">
+        <div class="ctrl-info">
+          Slide <strong id="slide-counter">1</strong>
+          <span class="pipe">|</span>
+          <span class="slide-name" id="slide-name-display">Infrastructure Engine</span>
+        </div>
+        <div class="kb-hint">
+          <span class="kb-key">←</span>
+          <span class="kb-key">→</span>
+          &nbsp;Keyboard navigation &nbsp;·&nbsp;
+          <span class="kb-key">Space</span> advance
+        </div>
+        <div class="ctrl-btns">
+          <button class="btn-prev" id="btn-prev" onclick="prevSlide()" disabled>← Prev</button>
+          <button class="btn-next" id="btn-next" onclick="nextSlide()">Next →</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    let current = 1;
+    const TOTAL = 12;
+    const NAMES = ['','Infrastructure Engine','Identity Access Gates','Marketplace Profiles','Lawyer Verification Wall','Case Lifecycle Setup','7-Milestone Pipeline','Cloudinary Doc Engine','Aggregate Validation Gate','Dual-Channel Alerts','Case Chat Architecture','Razorpay Payments Engine','Automated Enforcement'];
+
+    function updateUI() {
+      for (let i = 1; i <= TOTAL; i++) {
+        const el = document.getElementById('slide-' + i);
+        if (el) el.classList.remove('active');
+        const nb = document.getElementById('nav-' + i);
+        if (nb) nb.classList.toggle('active', i === current);
+      }
+      const active = document.getElementById('slide-' + current);
+      if (active) active.classList.add('active');
+
+      const nb = document.getElementById('nav-' + current);
+      if (nb) nb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      document.getElementById('slide-counter').textContent = current;
+      document.getElementById('slide-name-display').textContent = NAMES[current] || '';
+      document.getElementById('prog-label-num').textContent = current;
+      document.getElementById('prog-fill').style.width = (current / TOTAL * 100).toFixed(2) + '%';
+      document.getElementById('btn-prev').disabled = current === 1;
+      document.getElementById('btn-next').disabled = current === TOTAL;
+    }
+
+    function nextSlide() { if (current < TOTAL) { current++; updateUI(); } }
+    function prevSlide() { if (current > 1)     { current--; updateUI(); } }
+    function goToSlide(n) { current = n; updateUI(); }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+      if (e.key === 'ArrowLeft')                   { e.preventDefault(); prevSlide(); }
+    });
+
+    updateUI();
+  </script>
+</body>
+</html>
